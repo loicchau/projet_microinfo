@@ -10042,150 +10042,150 @@ OUTPUT(build/Noisy.elf elf32-littlearm)
  .debug_line    0x000283a4       0x98 ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_bitreversal2.o)
  .debug_line    0x0002843c      0x67a ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cfft_radix8_f32.o)
 
-.debug_str      0x00000000     0x85a7
+.debug_str      0x00000000     0x85e6
  .debug_str     0x00000000     0x244a build/obj/main.o
                                0x26a6 (size before relaxing)
- .debug_str     0x0000244a      0x280 build/obj/audio_processing.o
-                               0x280e (size before relaxing)
- .debug_str     0x000026ca       0x34 build/obj/communications.o
+ .debug_str     0x0000244a      0x2bf build/obj/audio_processing.o
+                               0x2815 (size before relaxing)
+ .debug_str     0x00002709       0x34 build/obj/communications.o
                                0x2459 (size before relaxing)
- .debug_str     0x000026fe      0x3ea build/obj/fft.o
+ .debug_str     0x0000273d      0x3ea build/obj/fft.o
                                0x283b (size before relaxing)
- .debug_str     0x00002ae8      0x442 build/obj/spi3_slave_lld.o
+ .debug_str     0x00002b27      0x442 build/obj/spi3_slave_lld.o
                                0x215a (size before relaxing)
- .debug_str     0x00002f2a      0x6eb build/obj/dcmi_lld.o
+ .debug_str     0x00002f69      0x6eb build/obj/dcmi_lld.o
                                0x2614 (size before relaxing)
- .debug_str     0x00003615      0x1d7 build/obj/spi3_slave.o
+ .debug_str     0x00003654      0x1d7 build/obj/spi3_slave.o
                                0x20c3 (size before relaxing)
- .debug_str     0x000037ec      0x15a build/obj/microphone.o
+ .debug_str     0x0000382b      0x15a build/obj/microphone.o
                                0x22e1 (size before relaxing)
- .debug_str     0x00003946      0x33b build/obj/mp45dt02_processing.o
+ .debug_str     0x00003985      0x33b build/obj/mp45dt02_processing.o
                                0x2721 (size before relaxing)
- .debug_str     0x00003c81      0x1ed build/obj/memory_protection.o
+ .debug_str     0x00003cc0      0x1ed build/obj/memory_protection.o
                                0x23f7 (size before relaxing)
- .debug_str     0x00003e6e      0x287 build/obj/motors.o
+ .debug_str     0x00003ead      0x287 build/obj/motors.o
                                0x2001 (size before relaxing)
- .debug_str     0x000040f5       0x3b build/obj/panic.o
+ .debug_str     0x00004134       0x3b build/obj/panic.o
                                0x1d0e (size before relaxing)
- .debug_str     0x00004130      0x192 build/obj/usbcfg.o
+ .debug_str     0x0000416f      0x192 build/obj/usbcfg.o
                                0x1fe0 (size before relaxing)
- .debug_str     0x000042c2       0x62 build/obj/malloc_lock.o
+ .debug_str     0x00004301       0x62 build/obj/malloc_lock.o
                                 0xc4c (size before relaxing)
- .debug_str     0x00004324      0x1cc build/obj/newlib_syscalls.o
+ .debug_str     0x00004363      0x1cc build/obj/newlib_syscalls.o
                                0x2333 (size before relaxing)
- .debug_str     0x000044f0       0x7e build/obj/crt1.o
+ .debug_str     0x0000452f       0x7e build/obj/crt1.o
                                 0x20b (size before relaxing)
- .debug_str     0x0000456e      0x17b build/obj/vectors.o
+ .debug_str     0x000045ad      0x17b build/obj/vectors.o
                                 0x3d0 (size before relaxing)
- .debug_str     0x000046e9      0x3aa build/obj/chsys.o
+ .debug_str     0x00004728      0x3aa build/obj/chsys.o
                                0x130e (size before relaxing)
- .debug_str     0x00004a93       0x80 build/obj/chdebug.o
+ .debug_str     0x00004ad2       0x80 build/obj/chdebug.o
                                 0x988 (size before relaxing)
- .debug_str     0x00004b13       0x5a build/obj/chvt.o
+ .debug_str     0x00004b52       0x5a build/obj/chvt.o
                                 0x879 (size before relaxing)
- .debug_str     0x00004b6d      0x156 build/obj/chschd.o
+ .debug_str     0x00004bac      0x156 build/obj/chschd.o
                                 0xad0 (size before relaxing)
- .debug_str     0x00004cc3      0x20a build/obj/chthreads.o
+ .debug_str     0x00004d02      0x20a build/obj/chthreads.o
                                 0xc11 (size before relaxing)
- .debug_str     0x00004ecd       0x7a build/obj/chtm.o
+ .debug_str     0x00004f0c       0x7a build/obj/chtm.o
                                 0x95e (size before relaxing)
- .debug_str     0x00004f47       0x3e build/obj/chstats.o
+ .debug_str     0x00004f86       0x3e build/obj/chstats.o
                                 0x91a (size before relaxing)
- .debug_str     0x00004f85       0x62 build/obj/chregistry.o
+ .debug_str     0x00004fc4       0x62 build/obj/chregistry.o
                                 0x90c (size before relaxing)
- .debug_str     0x00004fe7       0xc3 build/obj/chsem.o
+ .debug_str     0x00005026       0xc3 build/obj/chsem.o
                                 0xa4a (size before relaxing)
- .debug_str     0x000050aa       0xa4 build/obj/chmtx.o
+ .debug_str     0x000050e9       0xa4 build/obj/chmtx.o
                                 0x9f1 (size before relaxing)
- .debug_str     0x0000514e      0x18f build/obj/chevents.o
+ .debug_str     0x0000518d      0x18f build/obj/chevents.o
                                 0xb11 (size before relaxing)
- .debug_str     0x000052dd      0x115 build/obj/chqueues.o
+ .debug_str     0x0000531c      0x115 build/obj/chqueues.o
                                 0xa9c (size before relaxing)
- .debug_str     0x000053f2       0x88 build/obj/chmemcore.o
+ .debug_str     0x00005431       0x88 build/obj/chmemcore.o
                                 0x952 (size before relaxing)
- .debug_str     0x0000547a       0xd6 build/obj/chheap.o
+ .debug_str     0x000054b9       0xd6 build/obj/chheap.o
                                 0x91c (size before relaxing)
- .debug_str     0x00005550       0xa8 build/obj/chcore_v7m.o
+ .debug_str     0x0000558f       0xa8 build/obj/chcore_v7m.o
                                 0x9a3 (size before relaxing)
- .debug_str     0x000055f8       0xd7 build/obj/hal.o
+ .debug_str     0x00005637       0xd7 build/obj/hal.o
                                0x1daf (size before relaxing)
- .debug_str     0x000056cf      0x385 build/obj/hal_mmcsd.o
+ .debug_str     0x0000570e      0x385 build/obj/hal_mmcsd.o
                                0x2073 (size before relaxing)
- .debug_str     0x00005a54      0x13d build/obj/adc.o
+ .debug_str     0x00005a93      0x13d build/obj/adc.o
                                0x1f95 (size before relaxing)
- .debug_str     0x00005b91      0x1fd build/obj/can.o
+ .debug_str     0x00005bd0      0x1fd build/obj/can.o
                                0x201e (size before relaxing)
- .debug_str     0x00005d8e      0x162 build/obj/dac.o
+ .debug_str     0x00005dcd      0x162 build/obj/dac.o
                                0x1fd4 (size before relaxing)
- .debug_str     0x00005ef0       0xf8 build/obj/ext.o
+ .debug_str     0x00005f2f       0xf8 build/obj/ext.o
                                0x1ea2 (size before relaxing)
- .debug_str     0x00005fe8      0x12f build/obj/gpt.o
+ .debug_str     0x00006027      0x12f build/obj/gpt.o
                                0x1f0c (size before relaxing)
- .debug_str     0x00006117      0x130 build/obj/i2c.o
+ .debug_str     0x00006156      0x130 build/obj/i2c.o
                                0x1f32 (size before relaxing)
- .debug_str     0x00006247       0x9e build/obj/i2s.o
+ .debug_str     0x00006286       0x9e build/obj/i2s.o
                                0x1e77 (size before relaxing)
- .debug_str     0x000062e5      0x179 build/obj/pwm.o
+ .debug_str     0x00006324      0x179 build/obj/pwm.o
                                0x1fa5 (size before relaxing)
- .debug_str     0x0000645e      0x43e build/obj/sdc.o
+ .debug_str     0x0000649d      0x43e build/obj/sdc.o
                                0x2638 (size before relaxing)
- .debug_str     0x0000689c       0xa6 build/obj/serial.o
+ .debug_str     0x000068db       0xa6 build/obj/serial.o
                                0x1f88 (size before relaxing)
- .debug_str     0x00006942      0x151 build/obj/serial_usb.o
+ .debug_str     0x00006981      0x151 build/obj/serial_usb.o
                                0x2197 (size before relaxing)
- .debug_str     0x00006a93      0x177 build/obj/spi.o
+ .debug_str     0x00006ad2      0x177 build/obj/spi.o
                                0x1f97 (size before relaxing)
- .debug_str     0x00006c0a       0xdb build/obj/st.o
+ .debug_str     0x00006c49       0xdb build/obj/st.o
                                0x1dca (size before relaxing)
- .debug_str     0x00006ce5      0x2af build/obj/usb.o
+ .debug_str     0x00006d24      0x2af build/obj/usb.o
                                0x25a0 (size before relaxing)
- .debug_str     0x00006f94       0x7a build/obj/nvic.o
+ .debug_str     0x00006fd3       0x7a build/obj/nvic.o
                                0x1e12 (size before relaxing)
- .debug_str     0x0000700e      0x157 build/obj/stm32_dma.o
+ .debug_str     0x0000704d      0x157 build/obj/stm32_dma.o
                                0x24ad (size before relaxing)
- .debug_str     0x00007165       0xac build/obj/hal_lld.o
+ .debug_str     0x000071a4       0xac build/obj/hal_lld.o
                                0x1e56 (size before relaxing)
- .debug_str     0x00007211       0xee build/obj/adc_lld.o
+ .debug_str     0x00007250       0xee build/obj/adc_lld.o
                                0x25b6 (size before relaxing)
- .debug_str     0x000072ff      0x123 build/obj/ext_lld_isr.o
+ .debug_str     0x0000733e      0x123 build/obj/ext_lld_isr.o
                                0x235a (size before relaxing)
- .debug_str     0x00007422      0x14d build/obj/can_lld.o
+ .debug_str     0x00007461      0x14d build/obj/can_lld.o
                                0x21e0 (size before relaxing)
- .debug_str     0x0000756f       0x6e build/obj/ext_lld.o
+ .debug_str     0x000075ae       0x6e build/obj/ext_lld.o
                                0x1e11 (size before relaxing)
- .debug_str     0x000075dd      0x12a build/obj/sdc_lld.o
+ .debug_str     0x0000761c      0x12a build/obj/sdc_lld.o
                                0x26df (size before relaxing)
- .debug_str     0x00007707       0x7c build/obj/dac_lld.o
+ .debug_str     0x00007746       0x7c build/obj/dac_lld.o
                                0x202f (size before relaxing)
- .debug_str     0x00007783       0x8e build/obj/pal_lld.o
+ .debug_str     0x000077c2       0x8e build/obj/pal_lld.o
                                0x1e43 (size before relaxing)
- .debug_str     0x00007811      0x14c build/obj/i2c_lld.o
+ .debug_str     0x00007850      0x14c build/obj/i2c_lld.o
                                0x2761 (size before relaxing)
- .debug_str     0x0000795d      0x22a build/obj/usb_lld.o
+ .debug_str     0x0000799c      0x22a build/obj/usb_lld.o
                                0x285a (size before relaxing)
- .debug_str     0x00007b87       0x6c build/obj/i2s_lld.o
+ .debug_str     0x00007bc6       0x6c build/obj/i2s_lld.o
                                0x1ec2 (size before relaxing)
- .debug_str     0x00007bf3       0x9f build/obj/spi_lld.o
+ .debug_str     0x00007c32       0x9f build/obj/spi_lld.o
                                0x2074 (size before relaxing)
- .debug_str     0x00007c92       0x85 build/obj/gpt_lld.o
+ .debug_str     0x00007cd1       0x85 build/obj/gpt_lld.o
                                0x1f25 (size before relaxing)
- .debug_str     0x00007d17       0x93 build/obj/pwm_lld.o
+ .debug_str     0x00007d56       0x93 build/obj/pwm_lld.o
                                0x1fb6 (size before relaxing)
- .debug_str     0x00007daa       0x8c build/obj/st_lld.o
+ .debug_str     0x00007de9       0x8c build/obj/st_lld.o
                                0x1efb (size before relaxing)
- .debug_str     0x00007e36       0x89 build/obj/serial_lld.o
+ .debug_str     0x00007e75       0x89 build/obj/serial_lld.o
                                0x2069 (size before relaxing)
- .debug_str     0x00007ebf       0x7f build/obj/board.o
+ .debug_str     0x00007efe       0x7f build/obj/board.o
                                0x1d7c (size before relaxing)
- .debug_str     0x00007f3e      0x3db ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_str     0x00007f7d      0x3db ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_common_tables.o)
                                 0x704 (size before relaxing)
- .debug_str     0x00008319       0x3e ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_copy_f32.o)
+ .debug_str     0x00008358       0x3e ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_copy_f32.o)
                                 0x225 (size before relaxing)
- .debug_str     0x00008357      0x10d ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cfft_f32.o)
+ .debug_str     0x00008396      0x10d ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cfft_f32.o)
                                 0x35f (size before relaxing)
- .debug_str     0x00008464      0x100 ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_str     0x000084a3      0x100 ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
                                 0x303 (size before relaxing)
- .debug_str     0x00008564       0x43 ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cfft_radix8_f32.o)
+ .debug_str     0x000085a3       0x43 ../../lib/e-puck2_main-processor/libarm_cortexM4lf_math.a(arm_cfft_radix8_f32.o)
                                 0x256 (size before relaxing)
 
 .debug_frame    0x00000000     0x7728
