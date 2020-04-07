@@ -17,7 +17,6 @@ typedef enum {
 	BACK_OUTPUT
 } BUFFER_NAME_t;
 
-void sound_remote(float* data);
 
 void processAudioData(int16_t *data, uint16_t num_samples);
 
