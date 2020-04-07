@@ -9149,10 +9149,10 @@ destructors     0x080001c0        0x0
                 0x2000b860     0x2000 build/obj/audio_processing.o
  .bss.micRight_output
                 0x2000d860     0x1000 build/obj/audio_processing.o
- .bss.mustSend.14175
+ .bss.mustSend.14173
                 0x2000e860        0x1 build/obj/audio_processing.o
  *fill*         0x2000e861        0x1 
- .bss.nb_samples.14174
+ .bss.nb_samples.14172
                 0x2000e862        0x2 build/obj/audio_processing.o
  .bss.dummytx   0x2000e864        0x2 build/obj/spi3_slave_lld.o
  *fill*         0x2000e866        0x2 
