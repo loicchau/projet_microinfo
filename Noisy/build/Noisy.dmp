@@ -143,8 +143,8 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 2000a860 l     O .bss	00001000 micLeft_output
 20007860 l     O .bss	00001000 micFront_output
 20004860 l     O .bss	00001000 micBack_output
-2000e860 l     O .bss	00000001 mustSend.14175
-2000e862 l     O .bss	00000002 nb_samples.14174
+2000e860 l     O .bss	00000001 mustSend.14173
+2000e862 l     O .bss	00000002 nb_samples.14172
 20000b2c l     O .data	0000000c sendToComputer_sem
 08015860 l     O .text	0000000c __func__.7153
 00000000 l    df *ABS*	00000000 communications.c
