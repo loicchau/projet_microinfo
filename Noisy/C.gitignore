@@ -1,4 +1,9 @@
 build 
+.lst
+.elf
+.map
+.o
+.dmp
 
 # Prerequisites
 *.d
