@@ -9,10 +9,10 @@
 #include <main.h>
 #include <chprintf.h>
 #include <motors.h>
+//#include <messagebus.h>
+#include "i2c_bus.h"
 #include <audio/microphone.h>
-
 #include <detection.h>
-
 #include <audio_processing.h>
 #include <fft.h>
 #include <communications.h>
@@ -23,6 +23,10 @@
 
 //uncomment to use double buffering to send the FFT to the computer
 #define DOUBLE_BUFFERING
+
+messagebus_t bus;
+MUTEX_DECL(bus_lock);
+CONDVAR_DECL(bus_condvar);
 
 static void serial_start(void)
 {
@@ -59,6 +63,8 @@ int main(void)
     chSysInit();
     mpu_init();
 
+    messagebus_init( & bus, & bus_lock, & bus_condvar);
+
     //starts the serial communication
     serial_start();
     //starts the USB communication
@@ -67,9 +73,12 @@ int main(void)
     timer12_start();
     //inits the motors
     motors_init();
-    //init the proximity sensors and the TOF sensor
+    //start sensors_init
     sensors_init();
 
+    //temp tab used to store values in complex_float format
+    //needed bx doFFT_c
+    static complex_float temp_tab[FFT_SIZE];
     //send_tab is used to save the state of the buffer to send (double buffering)
     //to avoid modifications of the buffer while sending it
     static float send_tab[FFT_SIZE];
@@ -93,6 +102,9 @@ int main(void)
         SendFloatToComputer((BaseSequentialStream *) &SD3, get_audio_buffer_ptr(LEFT_OUTPUT), FFT_SIZE);
 #endif  /* DOUBLE_BUFFERING */
 #else
+        //time measurement variables
+        volatile uint16_t time_fft = 0;
+        volatile uint16_t time_mag  = 0;
 
         float* bufferCmplxInput = get_audio_buffer_ptr(LEFT_CMPLX_INPUT);
         float* bufferOutput = get_audio_buffer_ptr(LEFT_OUTPUT);
@@ -100,12 +112,64 @@ int main(void)
         uint16_t size = ReceiveInt16FromComputer((BaseSequentialStream *) &SD3, bufferCmplxInput, FFT_SIZE);
 
         if(size == FFT_SIZE){
+            /*
+            *   Optimized FFT
+            */
+            
+            chSysLock();
+            //reset the timer counter
+            GPTD12.tim->CNT = 0;
 
             doFFT_optimized(FFT_SIZE, bufferCmplxInput);
 
+            time_fft = GPTD12.tim->CNT;
+            chSysUnlock();
+
+            /*
+            *   End of optimized FFT
+            */
+
+            /*
+            *   Non optimized FFT
+            */
+
+            // //need to convert the float buffer into complex_float struct array
+            // for(uint16_t i = 0 ; i < (2*FFT_SIZE) ; i+=2){
+            //     temp_tab[i/2].real = bufferCmplxInput[i];
+            //     temp_tab[i/2].imag = bufferCmplxInput[i+1];
+            // }
+
+            // chSysLock();
+            // //reset the timer counter
+            // GPTD12.tim->CNT = 0;
+
+            // //do a non optimized FFT
+            // doFFT_c(FFT_SIZE, temp_tab);
+
+            // time_fft = GPTD12.tim->CNT;
+            // chSysUnlock();
+            
+            // //reconverts the result into a float buffer
+            // for(uint16_t i = 0 ; i < (2*FFT_SIZE) ; i+=2){
+            //     bufferCmplxInput[i] = temp_tab[i/2].real;
+            //     bufferCmplxInput[i+1] = temp_tab[i/2].imag;
+            // }
+
+            /*
+            *   End of non optimized FFT
+            */
+
+            chSysLock();
+            //reset the timer counter
+            GPTD12.tim->CNT = 0;
+
             arm_cmplx_mag_f32(bufferCmplxInput, bufferOutput, FFT_SIZE);
 
+            time_mag = GPTD12.tim->CNT;
+            chSysUnlock();
+
             SendFloatToComputer((BaseSequentialStream *) &SD3, bufferOutput, FFT_SIZE);
+            //chprintf((BaseSequentialStream *) &SDU1, "time fft = %d us, time magnitude = %d us\n",time_fft, time_mag);
 
         }
 #endif  /* SEND_FROM_MIC */

@@ -17,7 +17,6 @@ void sensors_init(void) {
     // TOF sensor
     VL53L0X_start();
     // Proximity sensors
-    messagebus_init( & bus, & bus_lock, & bus_condvar);
     proximity_start();
     calibrate_ir();
     chThdSleepMilliseconds(500);
