@@ -67,12 +67,11 @@ void sound_remote(float* data){
 	}
 
 	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-		for(uint16_t i = 0 ; i < FFT_SIZE ; i++){
-			if(abs(micLeft_phase[i]-micRight_phase[i]) > abs(micLeft_phase[i]-micFront_phase[i])-MIN_PHASE_THRESHOLD){
+			if(abs(micLeft_phase[max_norm_index]-micRight_phase[max_norm_index]) > abs(micLeft_phase[max_norm_index]-micFront_phase[max_norm_index])-MIN_PHASE_THRESHOLD){
 				left_motor_set_speed(-600);
 				right_motor_set_speed(600);
 			}
-			else if(abs(micLeft_phase[i]-micRight_phase[i]) < abs(micLeft_phase[i]-micFront_phase[i])-MIN_PHASE_THRESHOLD){
+			else if(abs(micLeft_phase[max_norm_index]-micRight_phase[max_norm_index]) < abs(micLeft_phase[max_norm_index]-micFront_phase[max_norm_index])-MIN_PHASE_THRESHOLD){
 				left_motor_set_speed(600);
 				right_motor_set_speed(-600);
 			}
@@ -80,7 +79,6 @@ void sound_remote(float* data){
 				left_motor_set_speed(600);
 				right_motor_set_speed(600);
 			}
-		}
 	}
 	/*
 	//go forward
