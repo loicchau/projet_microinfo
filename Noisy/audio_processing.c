@@ -31,7 +31,9 @@ static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD	10000 
+#define MIN_PHASE_THRESHOLD 0.05
 
+#define FREQ			250
 #define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
 #define FREQ_FORWARD	16	//250Hz
 #define FREQ_LEFT		19	//296Hz
@@ -64,13 +66,30 @@ void sound_remote(float* data){
 		}
 	}
 
+	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
+		for(uint16_t i = 0 ; i < FFT_SIZE ; i++){
+			if(abs(micLeft_phase[i]-micRight_phase[i]) > abs(micLeft_phase[i]-micFront_phase[i])-MIN_PHASE_THRESHOLD){
+				left_motor_set_speed(-600);
+				right_motor_set_speed(600);
+			}
+			else if(abs(micLeft_phase[i]-micRight_phase[i]) < abs(micLeft_phase[i]-micFront_phase[i])-MIN_PHASE_THRESHOLD){
+				left_motor_set_speed(600);
+				right_motor_set_speed(-600);
+			}
+			else{
+				left_motor_set_speed(600);
+				right_motor_set_speed(600);
+			}
+		}
+	}
+	/*
 	//go forward
 	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
 		left_motor_set_speed(600);
 		right_motor_set_speed(600);
-	}
+	}*/
 	//turn left
-	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
+	if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
 		left_motor_set_speed(-600);
 		right_motor_set_speed(600);
 	}
@@ -148,6 +167,12 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
+		/*	Phase proccessing
+		*
+		*	Computes the phase of the complex numbers and
+		*	stores them in a buffer of FFT_SIZE because it only contains
+		*	real numbers. atan2() return a value in radians and in range -pi to pi.
+		*/
 		for(uint16_t i = 0 ; i < 2*FFT_SIZE ; i+=2){
 			micRight_phase[i/2] = atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
 			micLeft_phase[i/2] = atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
