@@ -19,6 +19,11 @@ static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
 static float micFront_cmplx_input[2 * FFT_SIZE];
 static float micBack_cmplx_input[2 * FFT_SIZE];
+//Arrays containing the computed phase of the complex numbers
+static float micLeft_phase[FFT_SIZE];
+static float micRight_phase[FFT_SIZE];
+static float micFront_phase[FFT_SIZE];
+static float micBack_phase[FFT_SIZE];
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
@@ -142,6 +147,13 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
+
+		for(uint16_t i = 0 ; i < 2*FFT_SIZE ; i+=2){
+			micRight_phase[i/2] = atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
+			micLeft_phase[i/2] = atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
+			micFront_phase[i/2] = atan2(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
+			micBack_phase[i/2] = atan2(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
+		}
 
 		/*	Magnitude processing
 		*
