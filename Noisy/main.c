@@ -9,13 +9,11 @@
 #include <main.h>
 #include <chprintf.h>
 #include <motors.h>
-//#include <messagebus.h>
 #include "i2c_bus.h"
 #include <audio/microphone.h>
 #include <detection.h>
 #include <audio_processing.h>
 #include <fft.h>
-#include <communications.h>
 #include <arm_math.h>
 
 
@@ -71,10 +69,6 @@ int main(void)
     //start sensors_init
     sensors_init();
 
-    //send_tab is used to save the state of the buffer to send (double buffering)
-    //to avoid modifications of the buffer while sending it
-    static float send_tab[FFT_SIZE];
-
 
     //starts the microphones processing thread.
     //it calls the callback given in parameter when samples are ready
@@ -84,14 +78,6 @@ int main(void)
     /* Infinite loop. */
     while (1) {
 
-        //waits until a result must be sent to the computer
-        wait_send_to_computer();
-
-        //we copy the buffer to avoid conflicts
-        arm_copy_f32(get_audio_buffer_ptr(LEFT_OUTPUT), send_tab, FFT_SIZE);
-        SendFloatToComputer((BaseSequentialStream *) &SD3, send_tab, FFT_SIZE);
-
-        SendFloatToComputer((BaseSequentialStream *) &SD3, get_audio_buffer_ptr(LEFT_OUTPUT), FFT_SIZE);
     }
 
 }

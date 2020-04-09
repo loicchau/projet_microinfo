@@ -7,7 +7,6 @@
 #include <motors.h>
 #include <audio/microphone.h>
 #include <audio_processing.h>
-#include <communications.h>
 #include <fft.h>
 #include <arm_math.h>
 
@@ -31,9 +30,8 @@ static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD	10000 
-#define MIN_PHASE_THRESHOLD 0.05
+//#define MIN_PHASE_THRESHOLD 0.05
 
-#define FREQ			250
 #define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
 #define FREQ_FORWARD	16	//250Hz
 #define FREQ_LEFT		19	//296Hz
@@ -56,7 +54,7 @@ static float micBack_output[FFT_SIZE];
 */
 void sound_remote(float* data){
 	float max_norm = MIN_VALUE_THRESHOLD;
-	int16_t max_norm_index = -1; 
+	volatile int16_t max_norm_index = -1;
 
 	//search for the highest peak
 	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
@@ -67,43 +65,38 @@ void sound_remote(float* data){
 	}
 
 	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-			if(abs(micLeft_phase[max_norm_index]-micRight_phase[max_norm_index]) > abs(micLeft_phase[max_norm_index]-micFront_phase[max_norm_index])-MIN_PHASE_THRESHOLD){
-				left_motor_set_speed(-600);
-				right_motor_set_speed(600);
-			}
-			else if(abs(micLeft_phase[max_norm_index]-micRight_phase[max_norm_index]) < abs(micLeft_phase[max_norm_index]-micFront_phase[max_norm_index])-MIN_PHASE_THRESHOLD){
-				left_motor_set_speed(600);
-				right_motor_set_speed(-600);
-			}
-			else{
-				left_motor_set_speed(600);
-				right_motor_set_speed(600);
-			}
+		palWritePad(GPIOD, GPIOD_LED1, 0);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
-	/*
-	//go forward
-	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(600);
-	}*/
+
 	//turn left
-	if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(600);
+	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
+		palWritePad(GPIOD, GPIOD_LED1, 1);
+		palWritePad(GPIOD, GPIOD_LED3, 0);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
 	//turn right
 	else if(max_norm_index >= FREQ_RIGHT_L && max_norm_index <= FREQ_RIGHT_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(-600);
+		palWritePad(GPIOD, GPIOD_LED1, 1);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 0);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
 	//go backward
 	else if(max_norm_index >= FREQ_BACKWARD_L && max_norm_index <= FREQ_BACKWARD_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(-600);
+		palWritePad(GPIOD, GPIOD_LED1, 1);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 0);
 	}
 	else{
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
+		palWritePad(GPIOD, GPIOD_LED1, 1);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
 	
 }
@@ -128,7 +121,6 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 	*/
 
 	static uint16_t nb_samples = 0;
-	static uint8_t mustSend = 0;
 
 	//loop to fill the buffers
 	for(uint16_t i = 0 ; i < num_samples ; i+=4){
@@ -165,17 +157,18 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
-		/*	Phase proccessing
+
+		/*	Phase processing
 		*
 		*	Computes the phase of the complex numbers and
 		*	stores them in a buffer of FFT_SIZE because it only contains
 		*	real numbers. atan2() return a value in radians and in range -pi to pi.
 		*/
 		for(uint16_t i = 0 ; i < 2*FFT_SIZE ; i+=2){
-			micRight_phase[i/2] = atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
+			//micRight_phase[i/2] = atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
 			micLeft_phase[i/2] = atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
-			micFront_phase[i/2] = atan2(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
-			micBack_phase[i/2] = atan2(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
+			//micFront_phase[i/2] = atan2(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
+			//micBack_phase[i/2] = atan2(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
 		}
 
 		/*	Magnitude processing
@@ -190,50 +183,8 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
-		//sends only one FFT result over 10 for 1 mic to not flood the computer
-		//sends to UART3
-		if(mustSend > 8){
-			//signals to send the result to the computer
-			chBSemSignal(&sendToComputer_sem);
-			mustSend = 0;
-		}
 		nb_samples = 0;
-		mustSend++;
 
 		sound_remote(micLeft_output);
-	}
-}
-
-void wait_send_to_computer(void){
-	chBSemWait(&sendToComputer_sem);
-}
-
-float* get_audio_buffer_ptr(BUFFER_NAME_t name){
-	if(name == LEFT_CMPLX_INPUT){
-		return micLeft_cmplx_input;
-	}
-	else if (name == RIGHT_CMPLX_INPUT){
-		return micRight_cmplx_input;
-	}
-	else if (name == FRONT_CMPLX_INPUT){
-		return micFront_cmplx_input;
-	}
-	else if (name == BACK_CMPLX_INPUT){
-		return micBack_cmplx_input;
-	}
-	else if (name == LEFT_OUTPUT){
-		return micLeft_output;
-	}
-	else if (name == RIGHT_OUTPUT){
-		return micRight_output;
-	}
-	else if (name == FRONT_OUTPUT){
-		return micFront_output;
-	}
-	else if (name == BACK_OUTPUT){
-		return micBack_output;
-	}
-	else{
-		return NULL;
 	}
 }
