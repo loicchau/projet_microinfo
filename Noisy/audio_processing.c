@@ -18,26 +18,22 @@ static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
 static float micFront_cmplx_input[2 * FFT_SIZE];
 static float micBack_cmplx_input[2 * FFT_SIZE];
-//Arrays containing the computed phase of the complex numbers
-static float micLeft_phase[FFT_SIZE];
-static float micRight_phase[FFT_SIZE];
-static float micFront_phase[FFT_SIZE];
-//static float micBack_phase[FFT_SIZE];
+
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
-static float micBack_output[FFT_SIZE];
+//static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD	10000 
-//#define MIN_PHASE_THRESHOLD 0.05
+#define MIN_PHASE_THRESHOLD 0.035
 
-#define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
+#define MIN_FREQ		14	//we don't analyze before this index to not use resources for nothing
 #define FREQ_FORWARD	16	//250Hz
 #define FREQ_LEFT		19	//296Hz
 #define FREQ_RIGHT		23	//359HZ
 #define FREQ_BACKWARD	26	//406Hz
-#define MAX_FREQ		30	//we don't analyze after this index to not use resources for nothing
+#define MAX_FREQ		28	//we don't analyze after this index to not use resources for nothing
 
 #define FREQ_FORWARD_L		(FREQ_FORWARD-1)
 #define FREQ_FORWARD_H		(FREQ_FORWARD+1)
@@ -54,18 +50,36 @@ static float micBack_output[FFT_SIZE];
 */
 void sound_remote(float* data){
 	float max_norm = MIN_VALUE_THRESHOLD;
+	float micRight_phase = 0, micLeft_phase = 0, micFront_phase = 0;
 	volatile int16_t max_norm_index = -1;
 
 	//search for the highest peak
-	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-		if(data[i] > max_norm){
-			max_norm = data[i];
-			max_norm_index = i;
+	for(uint16_t i = 2*MIN_FREQ ; i <= 2*MAX_FREQ ; i+=2){
+		if(data[i/2] > max_norm){
+			max_norm = data[i/2];
+			max_norm_index = i/2;
+			micRight_phase = atan2_approx(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
+			micLeft_phase = atan2_approx(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
+			micFront_phase = atan2_approx(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
+			//micBack_phase[i/2] = atan2_approx(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
 		}
 	}
 
 	//LED 1
 	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
+			if(abs(micLeft_phase-micRight_phase) > abs(micLeft_phase-micFront_phase-MIN_PHASE_THRESHOLD)){
+				left_motor_set_speed(-300);
+				right_motor_set_speed(300);
+			}
+			else if(abs(micLeft_phase-micRight_phase) < abs(micLeft_phase-micFront_phase-MIN_PHASE_THRESHOLD)){
+				left_motor_set_speed(300);
+				right_motor_set_speed(-300);
+			}
+			else{
+				left_motor_set_speed(300);
+				right_motor_set_speed(300);
+			}
+
 		palWritePad(GPIOD, GPIOD_LED1, 0);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
@@ -93,6 +107,9 @@ void sound_remote(float* data){
 		palWritePad(GPIOD, GPIOD_LED7, 0);
 	}
 	else{
+		left_motor_set_speed(0);
+		right_motor_set_speed(0);
+
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
@@ -155,21 +172,9 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		doFFT_optimized(FFT_SIZE, micRight_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
-		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
+		//doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
 
-		/*	Phase processing
-		*
-		*	Computes the phase of the complex numbers and
-		*	stores them in a buffer of FFT_SIZE because it only contains
-		*	real numbers. atan2_appox() return a value in radians and in range -pi to pi.
-		*/
-		for(uint16_t i = 0 ; i < 2*FFT_SIZE ; i+=2){
-			//micRight_phase[i/2] = atan2_approx(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
-			micLeft_phase[i/2] = atan2_approx(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
-			//micFront_phase[i/2] = atan2_approx(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
-			//micBack_phase[i/2] = atan2_approx(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
-		}
 
 		/*	Magnitude processing
 		*
@@ -181,11 +186,11 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		arm_cmplx_mag_f32(micRight_cmplx_input, micRight_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micLeft_cmplx_input, micLeft_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
-		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
+		//arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
 		nb_samples = 0;
 
-		sound_remote(micLeft_output);
+		sound_remote(micFront_output);
 	}
 }
 
