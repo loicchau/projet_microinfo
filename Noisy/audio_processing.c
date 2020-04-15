@@ -22,7 +22,7 @@ static float micBack_cmplx_input[2 * FFT_SIZE];
 static float micLeft_phase[FFT_SIZE];
 static float micRight_phase[FFT_SIZE];
 static float micFront_phase[FFT_SIZE];
-static float micBack_phase[FFT_SIZE];
+//static float micBack_phase[FFT_SIZE];
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
@@ -64,28 +64,28 @@ void sound_remote(float* data){
 		}
 	}
 
+	//LED 1
 	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
 		palWritePad(GPIOD, GPIOD_LED1, 0);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
-
-	//turn left
+	//LED 3
 	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 0);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
-	//turn right
+	//LED 5
 	else if(max_norm_index >= FREQ_RIGHT_L && max_norm_index <= FREQ_RIGHT_H){
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
 		palWritePad(GPIOD, GPIOD_LED5, 0);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
-	//go backward
+	//LED 7
 	else if(max_norm_index >= FREQ_BACKWARD_L && max_norm_index <= FREQ_BACKWARD_H){
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
@@ -162,13 +162,13 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		*
 		*	Computes the phase of the complex numbers and
 		*	stores them in a buffer of FFT_SIZE because it only contains
-		*	real numbers. atan2() return a value in radians and in range -pi to pi.
+		*	real numbers. atan2_appox() return a value in radians and in range -pi to pi.
 		*/
 		for(uint16_t i = 0 ; i < 2*FFT_SIZE ; i+=2){
-			//micRight_phase[i/2] = atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
-			micLeft_phase[i/2] = atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
-			//micFront_phase[i/2] = atan2(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
-			//micBack_phase[i/2] = atan2(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
+			//micRight_phase[i/2] = atan2_approx(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
+			micLeft_phase[i/2] = atan2_approx(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
+			//micFront_phase[i/2] = atan2_approx(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
+			//micBack_phase[i/2] = atan2_approx(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
 		}
 
 		/*	Magnitude processing
@@ -188,3 +188,27 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		sound_remote(micLeft_output);
 	}
 }
+
+float atan2_approx(float y, float x){
+	//http://pubs.opengroup.org/onlinepubs/009695399/functions/atan2.html
+	//Volkan SALMA
+
+    const float ONEQTR_PI = M_PI / 4.0;
+	const float THRQTR_PI = 3.0 * M_PI / 4.0;
+	float r, angle;
+	float abs_y = fabs(y) + 1e-10f;      // kludge to prevent 0/0 condition
+	if ( x < 0.0f ){
+		r = (x + abs_y) / (abs_y - x);
+		angle = THRQTR_PI;
+	}
+	else{
+		r = (x - abs_y) / (x + abs_y);
+		angle = ONEQTR_PI;
+	}
+	angle += (0.1963f * r * r - 0.9817f) * r;
+	if ( y < 0.0f )
+		return( -angle );     // negate if in quad III or IV
+	else
+		return( angle );
+}
+
