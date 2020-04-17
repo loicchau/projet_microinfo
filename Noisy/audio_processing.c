@@ -23,88 +23,62 @@ static float micBack_cmplx_input[2 * FFT_SIZE];
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
-//static float micBack_output[FFT_SIZE];
+static float micBack_output[FFT_SIZE];
 
-#define MIN_VALUE_THRESHOLD	10000 
-#define MIN_PHASE_THRESHOLD 0.035
+#define MIN_VALUE_THRESHOLD 10000
+#define MIN_MAG_THRESHOLD 4000
 
-#define MIN_FREQ		14	//we don't analyze before this index to not use resources for nothing
-#define FREQ_FORWARD	16	//250Hz
-#define FREQ_LEFT		19	//296Hz
-#define FREQ_RIGHT		23	//359HZ
-#define FREQ_BACKWARD	26	//406Hz
-#define MAX_FREQ		28	//we don't analyze after this index to not use resources for nothing
+#define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
+#define FREQ_MOVE		19	//375Hz
+#define MAX_FREQ		22	//we don't analyze after this index to not use resources for nothing
 
-#define FREQ_FORWARD_L		(FREQ_FORWARD-1)
-#define FREQ_FORWARD_H		(FREQ_FORWARD+1)
-#define FREQ_LEFT_L			(FREQ_LEFT-1)
-#define FREQ_LEFT_H			(FREQ_LEFT+1)
-#define FREQ_RIGHT_L		(FREQ_RIGHT-1)
-#define FREQ_RIGHT_H		(FREQ_RIGHT+1)
-#define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
-#define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
+#define FREQ_MOVE_L		(FREQ_MOVE-2)
+#define FREQ_MOVE_H		(FREQ_MOVE+2)
+
 
 /*
 *	Simple function used to detect the highest value in a buffer
 *	and to execute a motor command depending on it
 */
-void sound_remote(float* data){
-	float max_norm = MIN_VALUE_THRESHOLD;
-	float micRight_phase = 0, micLeft_phase = 0, micFront_phase = 0;
+void sound_remote(float* front){
 	volatile int16_t max_norm_index = -1;
 
 	//search for the highest peak
-	for(uint16_t i = 2*MIN_FREQ ; i <= 2*MAX_FREQ ; i+=2){
-		if(data[i/2] > max_norm){
-			max_norm = data[i/2];
-			max_norm_index = i/2;
-			micRight_phase = atan2_approx(micRight_cmplx_input[i+1],micRight_cmplx_input[i]);
-			micLeft_phase = atan2_approx(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i]);
-			micFront_phase = atan2_approx(micFront_cmplx_input[i+1],micFront_cmplx_input[i]);
-			//micBack_phase[i/2] = atan2_approx(micBack_cmplx_input[i+1],micBack_cmplx_input[i]);
+	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
+		if(front[i] > MIN_VALUE_THRESHOLD){
+			max_norm_index = i;
 		}
 	}
 
-	//LED 1
-	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-			if(abs(micLeft_phase-micRight_phase) > abs(micLeft_phase-micFront_phase-MIN_PHASE_THRESHOLD)){
+	//
+	if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
+			if(micLeft_output[max_norm_index] > micRight_output[max_norm_index] + MIN_MAG_THRESHOLD){
 				left_motor_set_speed(-300);
 				right_motor_set_speed(300);
+
+				palWritePad(GPIOD, GPIOD_LED1, 1);
+				palWritePad(GPIOD, GPIOD_LED3, 1);
+				palWritePad(GPIOD, GPIOD_LED5, 1);
+				palWritePad(GPIOD, GPIOD_LED7, 0);
 			}
-			else if(abs(micLeft_phase-micRight_phase) < abs(micLeft_phase-micFront_phase-MIN_PHASE_THRESHOLD)){
+			else if(micLeft_output[max_norm_index] < micRight_output[max_norm_index] - MIN_MAG_THRESHOLD){
 				left_motor_set_speed(300);
 				right_motor_set_speed(-300);
+
+				palWritePad(GPIOD, GPIOD_LED1, 1);
+				palWritePad(GPIOD, GPIOD_LED3, 0);
+				palWritePad(GPIOD, GPIOD_LED5, 1);
+				palWritePad(GPIOD, GPIOD_LED7, 1);
 			}
 			else{
 				left_motor_set_speed(300);
 				right_motor_set_speed(300);
-			}
 
-		palWritePad(GPIOD, GPIOD_LED1, 0);
-		palWritePad(GPIOD, GPIOD_LED3, 1);
-		palWritePad(GPIOD, GPIOD_LED5, 1);
-		palWritePad(GPIOD, GPIOD_LED7, 1);
-	}
-	//LED 3
-	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
-		palWritePad(GPIOD, GPIOD_LED1, 1);
-		palWritePad(GPIOD, GPIOD_LED3, 0);
-		palWritePad(GPIOD, GPIOD_LED5, 1);
-		palWritePad(GPIOD, GPIOD_LED7, 1);
-	}
-	//LED 5
-	else if(max_norm_index >= FREQ_RIGHT_L && max_norm_index <= FREQ_RIGHT_H){
-		palWritePad(GPIOD, GPIOD_LED1, 1);
-		palWritePad(GPIOD, GPIOD_LED3, 1);
-		palWritePad(GPIOD, GPIOD_LED5, 0);
-		palWritePad(GPIOD, GPIOD_LED7, 1);
-	}
-	//LED 7
-	else if(max_norm_index >= FREQ_BACKWARD_L && max_norm_index <= FREQ_BACKWARD_H){
-		palWritePad(GPIOD, GPIOD_LED1, 1);
-		palWritePad(GPIOD, GPIOD_LED3, 1);
-		palWritePad(GPIOD, GPIOD_LED5, 1);
-		palWritePad(GPIOD, GPIOD_LED7, 0);
+				palWritePad(GPIOD, GPIOD_LED1, 0);
+				palWritePad(GPIOD, GPIOD_LED3, 1);
+				palWritePad(GPIOD, GPIOD_LED5, 1);
+				palWritePad(GPIOD, GPIOD_LED7, 1);
+			}
 	}
 	else{
 		left_motor_set_speed(0);
@@ -172,7 +146,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		doFFT_optimized(FFT_SIZE, micRight_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
-		//doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
+		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
 
 
@@ -186,34 +160,10 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		arm_cmplx_mag_f32(micRight_cmplx_input, micRight_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micLeft_cmplx_input, micLeft_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
-		//arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
+		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
 		nb_samples = 0;
 
 		sound_remote(micFront_output);
 	}
 }
-
-float atan2_approx(float y, float x){
-	//http://pubs.opengroup.org/onlinepubs/009695399/functions/atan2.html
-	//Volkan SALMA
-
-    const float ONEQTR_PI = M_PI / 4.0;
-	const float THRQTR_PI = 3.0 * M_PI / 4.0;
-	float r, angle;
-	float abs_y = fabs(y) + 1e-10f;      // kludge to prevent 0/0 condition
-	if ( x < 0.0f ){
-		r = (x + abs_y) / (abs_y - x);
-		angle = THRQTR_PI;
-	}
-	else{
-		r = (x - abs_y) / (x + abs_y);
-		angle = ONEQTR_PI;
-	}
-	angle += (0.1963f * r * r - 0.9817f) * r;
-	if ( y < 0.0f )
-		return( -angle );     // negate if in quad III or IV
-	else
-		return( angle );
-}
-

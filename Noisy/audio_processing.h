@@ -20,6 +20,5 @@ typedef enum {
 
 void processAudioData(int16_t *data, uint16_t num_samples);
 
-float atan2_approx(float y, float x);
 
 #endif /* AUDIO_PROCESSING_H */
