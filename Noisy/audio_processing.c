@@ -26,7 +26,7 @@ static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD 10000
-#define MIN_MAG_THRESHOLD 4000
+#define MIN_MAG_THRESHOLD 2000
 
 #define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
 #define FREQ_MOVE		19	//375Hz
@@ -41,10 +41,15 @@ static float micBack_output[FFT_SIZE];
 *	and to execute a motor command depending on it
 */
 void sound_remote(float* front){
+	float mag_average_left = 0, mag_average_right = 0;
+	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
 	//search for the highest peak
 	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
+		mag_average_left += micLeft_output[i]/(MAX_FREQ-MIN_FREQ);
+		mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
+		//mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
 		if(front[i] > MIN_VALUE_THRESHOLD){
 			max_norm_index = i;
 		}
@@ -52,7 +57,7 @@ void sound_remote(float* front){
 
 	//
 	if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(micLeft_output[max_norm_index] > micRight_output[max_norm_index] + MIN_MAG_THRESHOLD){
+			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD){
 				left_motor_set_speed(-300);
 				right_motor_set_speed(300);
 
@@ -61,7 +66,7 @@ void sound_remote(float* front){
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 0);
 			}
-			else if(micLeft_output[max_norm_index] < micRight_output[max_norm_index] - MIN_MAG_THRESHOLD){
+			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD){
 				left_motor_set_speed(300);
 				right_motor_set_speed(-300);
 
