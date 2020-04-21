@@ -25,15 +25,16 @@ static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
-#define MIN_VALUE_THRESHOLD 10000
-#define MIN_MAG_THRESHOLD 2000
+#define MIN_VALUE_THRESHOLD 12500
+#define MIN_MAG_THRESHOLD_RIGHT 2500
+#define MIN_MAG_THRESHOLD_LEFT 2500
 
 #define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
-#define FREQ_MOVE		19	//375Hz
+#define FREQ_MOVE		19	//297Hz
 #define MAX_FREQ		22	//we don't analyze after this index to not use resources for nothing
 
-#define FREQ_MOVE_L		(FREQ_MOVE-2)
-#define FREQ_MOVE_H		(FREQ_MOVE+2)
+#define FREQ_MOVE_L		(FREQ_MOVE-1)
+#define FREQ_MOVE_H		(FREQ_MOVE+1)
 
 
 /*
@@ -42,35 +43,54 @@ static float micBack_output[FFT_SIZE];
 */
 void sound_remote(float* front){
 	float mag_average_left = 0, mag_average_right = 0;
-	//float mag_average_front = 0;
+	float mag_average_front = 0, mag_average_back = 0;
 	volatile int16_t max_norm_index = -1;
 
 	//search for the highest peak
 	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
 		mag_average_left += micLeft_output[i]/(MAX_FREQ-MIN_FREQ);
 		mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
-		//mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
-		if(front[i] > MIN_VALUE_THRESHOLD){
+		mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
+		mag_average_back += micBack_output[i]/(MAX_FREQ-MIN_FREQ);
+		if(front[i] > MIN_VALUE_THRESHOLD){ //|| back[i] > MIN_VALUE_THRESHOLD
 			max_norm_index = i;
 		}
 	}
 
 	//
 	if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD){
+			if(mag_average_left - mag_average_right > MIN_MAG_THRESHOLD_LEFT && mag_average_back > mag_average_front){
 				left_motor_set_speed(-300);
 				right_motor_set_speed(300);
 
 				palWritePad(GPIOD, GPIOD_LED1, 1);
 				palWritePad(GPIOD, GPIOD_LED3, 1);
+				palWritePad(GPIOD, GPIOD_LED5, 0);
+				palWritePad(GPIOD, GPIOD_LED7, 0);
+			}
+			else if(mag_average_left - mag_average_right > MIN_MAG_THRESHOLD_LEFT && mag_average_back < mag_average_front){
+				left_motor_set_speed(-100);
+				right_motor_set_speed(300);
+
+				palWritePad(GPIOD, GPIOD_LED1, 0);
+				palWritePad(GPIOD, GPIOD_LED3, 1);
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 0);
 			}
-			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD){
+			else if(mag_average_right - mag_average_left > MIN_MAG_THRESHOLD_RIGHT && mag_average_back > mag_average_front){
 				left_motor_set_speed(300);
 				right_motor_set_speed(-300);
 
 				palWritePad(GPIOD, GPIOD_LED1, 1);
+				palWritePad(GPIOD, GPIOD_LED3, 0);
+				palWritePad(GPIOD, GPIOD_LED5, 0);
+				palWritePad(GPIOD, GPIOD_LED7, 1);
+			}
+			else if(mag_average_right - mag_average_left > MIN_MAG_THRESHOLD_RIGHT && mag_average_back < mag_average_front){
+				left_motor_set_speed(300);
+				right_motor_set_speed(-100);
+
+				palWritePad(GPIOD, GPIOD_LED1, 0);
 				palWritePad(GPIOD, GPIOD_LED3, 0);
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 1);
@@ -84,6 +104,7 @@ void sound_remote(float* front){
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 1);
 			}
+
 	}
 	else{
 		left_motor_set_speed(0);
