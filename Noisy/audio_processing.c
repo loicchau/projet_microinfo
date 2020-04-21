@@ -41,7 +41,7 @@ static float micBack_output[FFT_SIZE];
 *	Simple function used to detect the highest value in a buffer
 *	and to execute a motor command depending on it
 */
-void sound_remote(float* front){
+void sound_remote(float* front, float* back){
 	float mag_average_left = 0, mag_average_right = 0;
 	float mag_average_front = 0, mag_average_back = 0;
 	volatile int16_t max_norm_index = -1;
@@ -52,7 +52,7 @@ void sound_remote(float* front){
 		mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
 		mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
 		mag_average_back += micBack_output[i]/(MAX_FREQ-MIN_FREQ);
-		if(front[i] > MIN_VALUE_THRESHOLD){ //|| back[i] > MIN_VALUE_THRESHOLD
+		if(front[i] > MIN_VALUE_THRESHOLD || back[i] > MIN_VALUE_THRESHOLD){
 			max_norm_index = i;
 		}
 	}
@@ -68,8 +68,8 @@ void sound_remote(float* front){
 				palWritePad(GPIOD, GPIOD_LED5, 0);
 				palWritePad(GPIOD, GPIOD_LED7, 0);
 			}
-			else if(mag_average_left - mag_average_right > MIN_MAG_THRESHOLD_LEFT && mag_average_back < mag_average_front){
-				left_motor_set_speed(-100);
+			else if(mag_average_left - mag_average_right > MIN_MAG_THRESHOLD_LEFT){
+				left_motor_set_speed(0);
 				right_motor_set_speed(300);
 
 				palWritePad(GPIOD, GPIOD_LED1, 0);
@@ -86,16 +86,16 @@ void sound_remote(float* front){
 				palWritePad(GPIOD, GPIOD_LED5, 0);
 				palWritePad(GPIOD, GPIOD_LED7, 1);
 			}
-			else if(mag_average_right - mag_average_left > MIN_MAG_THRESHOLD_RIGHT && mag_average_back < mag_average_front){
+			else if(mag_average_right - mag_average_left > MIN_MAG_THRESHOLD_RIGHT){
 				left_motor_set_speed(300);
-				right_motor_set_speed(-100);
+				right_motor_set_speed(0);
 
 				palWritePad(GPIOD, GPIOD_LED1, 0);
 				palWritePad(GPIOD, GPIOD_LED3, 0);
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 1);
 			}
-			else{
+			else if(mag_average_back < mag_average_front){
 				left_motor_set_speed(300);
 				right_motor_set_speed(300);
 
@@ -190,6 +190,6 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		nb_samples = 0;
 
-		sound_remote(micFront_output);
+		sound_remote(micFront_output, micBack_output);
 	}
 }
