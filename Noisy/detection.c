@@ -49,23 +49,27 @@ static THD_FUNCTION(ProxThread, arg) {
 	 (void) arg;
 	 chRegSetThreadName(__FUNCTION__);
 
-	 prox_value[PROX_FRONT_RIGHT_F]=get_prox(PROX_FRONT_RIGHT_F);
-	 prox_value[PROX_FRONT_RIGHT_R]=get_prox(PROX_FRONT_RIGHT_R);
-	 prox_value[PROX_RIGHT]=get_prox(PROX_RIGHT);
-	 prox_value[PROX_BACK_RIGHT]=get_prox(PROX_BACK_RIGHT);
-	 prox_value[PROX_BACK_LEFT]=get_prox(PROX_BACK_LEFT);
-	 prox_value[PROX_LEFT]=get_prox(PROX_LEFT);
-	 prox_value[PROX_FRONT_LEFT_L]=get_prox(PROX_FRONT_LEFT_L);
-	 prox_value[PROX_FRONT_LEFT_F]=get_prox(PROX_FRONT_LEFT_F);
+	 while(1){
+		 prox_value[PROX_FRONT_RIGHT_F]=get_calibrated_prox(PROX_FRONT_RIGHT_F);
+		 prox_value[PROX_FRONT_RIGHT_R]=get_calibrated_prox(PROX_FRONT_RIGHT_R);
+		 prox_value[PROX_RIGHT]=get_calibrated_prox(PROX_RIGHT);
+		 prox_value[PROX_BACK_RIGHT]=get_calibrated_prox(PROX_BACK_RIGHT);
+		 prox_value[PROX_BACK_LEFT]=get_calibrated_prox(PROX_BACK_LEFT);
+		 prox_value[PROX_LEFT]=get_calibrated_prox(PROX_LEFT);
+		 prox_value[PROX_FRONT_LEFT_L]=get_calibrated_prox(PROX_FRONT_LEFT_L);
+		 prox_value[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
 
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_F]= %f \n", prox_value[PROX_FRONT_RIGHT_F]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_R]= %f \n", prox_value[PROX_FRONT_RIGHT_R]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_RIGHT]= %f \n", prox_value[PROX_RIGHT]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_RIGHT]= %f \n", prox_value[PROX_BACK_RIGHT]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_LEFT]= %f \n", prox_value[PROX_BACK_LEFT]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_LEFT]= %f \n", prox_value[PROX_LEFT]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_L]= %f \n", prox_value[PROX_FRONT_LEFT_L]);
-	 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_F]= %f \n", prox_value[PROX_FRONT_LEFT_F]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_F]= %f \n", prox_value[PROX_FRONT_RIGHT_F]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_R]= %f \n", prox_value[PROX_FRONT_RIGHT_R]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_RIGHT]= %f \n", prox_value[PROX_RIGHT]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_RIGHT]= %f \n", prox_value[PROX_BACK_RIGHT]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_LEFT]= %f \n", prox_value[PROX_BACK_LEFT]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_LEFT]= %f \n", prox_value[PROX_LEFT]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_L]= %f \n", prox_value[PROX_FRONT_LEFT_L]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_F]= %f \n", prox_value[PROX_FRONT_LEFT_F]);
+
+		// chThdSleepMilliseconds(500);
+	 }
 }
 
 void proxthd(void) {
