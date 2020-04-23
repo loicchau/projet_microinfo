@@ -34,6 +34,7 @@
 #define NB_PROX_SENSOR			9
 
 static float prox_value[NB_PROX_SENSOR];
+//bool motor_stop=false;
 
 void sensors_init(void) {
     // TOF sensor
@@ -60,13 +61,13 @@ static THD_FUNCTION(ProxThread, arg) {
 		 prox_value[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
 
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_F]= %f \n", prox_value[PROX_FRONT_RIGHT_F]);
-		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_R]= %f \n", prox_value[PROX_FRONT_RIGHT_R]);
+		/* chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_R]= %f \n", prox_value[PROX_FRONT_RIGHT_R]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_RIGHT]= %f \n", prox_value[PROX_RIGHT]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_RIGHT]= %f \n", prox_value[PROX_BACK_RIGHT]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_LEFT]= %f \n", prox_value[PROX_BACK_LEFT]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_LEFT]= %f \n", prox_value[PROX_LEFT]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_L]= %f \n", prox_value[PROX_FRONT_LEFT_L]);
-		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_F]= %f \n", prox_value[PROX_FRONT_LEFT_F]);
+		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_F]= %f \n", prox_value[PROX_FRONT_LEFT_F]);*/
 
 		// chThdSleepMilliseconds(500);
 	 }
@@ -76,9 +77,13 @@ void proxthd(void) {
 	chThdCreateStatic(waProxThread, sizeof(waProxThread), NORMALPRIO, ProxThread, NULL);
 }
 
-void obstacle_detection(void) {
+void obstacle_detection(bool motor_stop) {
 	if (prox_value[PROX_FRONT_RIGHT_F]>10 || prox_value[PROX_FRONT_RIGHT_R]>10 || prox_value[PROX_RIGHT]>10 || prox_value[PROX_BACK_RIGHT]>10 || prox_value[PROX_BACK_LEFT]>10 || prox_value[PROX_LEFT]>10 || prox_value[PROX_FRONT_LEFT_L]>10 || prox_value[PROX_FRONT_LEFT_F]>10) {
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
+		motor_stop = true;
 	}
+	else {
+		motor_stop = false;
+	}
+	return motor_stop;
+
 }
