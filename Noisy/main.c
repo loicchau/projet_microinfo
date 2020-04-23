@@ -69,6 +69,8 @@ int main(void)
     //start sensors_init
     sensors_init();
 
+    //create thread for prox sensors
+    proxthd();
 
     //starts the microphones processing thread.
     //it calls the callback given in parameter when samples are ready
