@@ -44,7 +44,7 @@ void sensors_init(void) {
     chThdSleepMilliseconds(500);
 }
 
-static THD_WORKING_AREA(waProxThread, 128);
+static THD_WORKING_AREA(waProxThread, 512);
 static THD_FUNCTION(ProxThread, arg) {
 	 (void) arg;
 	 chRegSetThreadName(__FUNCTION__);

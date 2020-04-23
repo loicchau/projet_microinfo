@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
   55 0018 00000000 		.word	.LC0
   56              		.cfi_endproc
   57              	.LFE112:
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 2
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 2
 
 
   58              		.size	_unhandled_exception, .-_unhandled_exception
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  112              		.thumb_set Vector154,_unhandled_exception
  113              		.weak	Vector150
  114              		.thumb_set Vector150,_unhandled_exception
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 3
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 3
 
 
  115              		.weak	Vector14C
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  169              		.weak	VectorE0
  170              		.thumb_set VectorE0,_unhandled_exception
  171              		.weak	VectorDC
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 4
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 4
 
 
  172              		.thumb_set VectorDC,_unhandled_exception
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  226              		.thumb_set Vector70,_unhandled_exception
  227              		.weak	Vector6C
  228              		.thumb_set Vector6C,_unhandled_exception
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 5
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 5
 
 
  229              		.weak	Vector68
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  283              		.align	2
  284              	.LC0:
  285 0000 756E6861 		.ascii	"unhandled exception\000"
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 6
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 6
 
 
  285      6E646C65 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  336 00b4 00000000 		.word	VectorB4
  337 00b8 00000000 		.word	VectorB8
  338 00bc 00000000 		.word	VectorBC
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 7
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 7
 
 
  339 00c0 00000000 		.word	VectorC0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  393 0198 00000000 		.word	Vector198
  394 019c 00000000 		.word	Vector19C
  395 01a0 00000000 		.word	Vector1A0
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 8
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 8
 
 
  396 01a4 00000000 		.word	Vector1A4
@@ -430,8 +430,8 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  402 01bc 00000000 		.word	Vector1BC
  403              		.text
  404              	.Letext0:
- 405              		.file 2 "c:\\users\\amaia\\documents\\epfl_cours\\microinfo\\eclipse_e-puck2_win32_29_jan_2020\\ec
- 406              		.file 3 "c:\\users\\amaia\\documents\\epfl_cours\\microinfo\\eclipse_e-puck2_win32_29_jan_2020\\ec
+ 405              		.file 2 "c:\\users\\loicc\\documents\\epfl\\microinfo\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
+ 406              		.file 3 "c:\\users\\loicc\\documents\\epfl\\microinfo\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7
  407              		.file 4 "../../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h"
  408              		.file 5 "../../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/ST/system_stm32f4xx.h"
  409              		.section	.debug_info,"",%progbits
@@ -451,7 +451,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  423 0025 02       		.uleb128 0x2
  424 0026 01       		.byte	0x1
  425 0027 06       		.byte	0x6
- 426 0028 B1030000 		.4byte	.LASF0
+ 426 0028 A5030000 		.4byte	.LASF0
  427 002c 02       		.uleb128 0x2
  428 002d 01       		.byte	0x1
  429 002e 08       		.byte	0x8
@@ -459,7 +459,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  431 0033 02       		.uleb128 0x2
  432 0034 02       		.byte	0x2
  433 0035 05       		.byte	0x5
- 434 0036 79030000 		.4byte	.LASF2
+ 434 0036 6D030000 		.4byte	.LASF2
  435 003a 02       		.uleb128 0x2
  436 003b 02       		.byte	0x2
  437 003c 07       		.byte	0x7
@@ -472,13 +472,13 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  444 004c 02       		.uleb128 0x2
  445 004d 04       		.byte	0x4
  446 004e 05       		.byte	0x5
- 447 004f 8C030000 		.4byte	.LASF4
+ 447 004f 80030000 		.4byte	.LASF4
  448 0053 03       		.uleb128 0x3
  449 0054 2F010000 		.4byte	.LASF6
  450 0058 02       		.byte	0x2
  451 0059 4F       		.byte	0x4f
  452 005a 5E000000 		.4byte	0x5e
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 9
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 9
 
 
  453 005e 02       		.uleb128 0x2
@@ -509,7 +509,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  478 008c 05       		.uleb128 0x5
  479 008d 81000000 		.4byte	0x81
  480 0091 03       		.uleb128 0x3
- 481 0092 83030000 		.4byte	.LASF12
+ 481 0092 77030000 		.4byte	.LASF12
  482 0096 03       		.byte	0x3
  483 0097 30       		.byte	0x30
  484 0098 53000000 		.4byte	0x53
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  507 00c9 31       		.byte	0x31
  508 00ca 9B010000 		.4byte	0x19b
  509 00ce 0B       		.uleb128 0xb
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 10
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 10
 
 
  510 00cf B3000000 		.4byte	.LASF16
@@ -565,7 +565,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  531 00f9 B3000000 		.4byte	0xb3
  532 00fd 0C       		.byte	0xc
  533 00fe 0B       		.uleb128 0xb
- 534 00ff 9F030000 		.4byte	.LASF20
+ 534 00ff 93030000 		.4byte	.LASF20
  535 0103 01       		.byte	0x1
  536 0104 36       		.byte	0x36
  537 0105 B3000000 		.4byte	0xb3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  564 013b B7020000 		.4byte	.LASF25
  565 013f 01       		.byte	0x1
  566 0140 3B       		.byte	0x3b
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 11
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 11
 
 
  567 0141 B3000000 		.4byte	0xb3
@@ -622,7 +622,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  585 0165 B3000000 		.4byte	0xb3
  586 0169 30       		.byte	0x30
  587 016a 0B       		.uleb128 0xb
- 588 016b DA030000 		.4byte	.LASF29
+ 588 016b CE030000 		.4byte	.LASF29
  589 016f 01       		.byte	0x1
  590 0170 3F       		.byte	0x3f
  591 0171 B3000000 		.4byte	0xb3
@@ -640,7 +640,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  603 0189 B3000000 		.4byte	0xb3
  604 018d 3C       		.byte	0x3c
  605 018e 0B       		.uleb128 0xb
- 606 018f 71030000 		.4byte	.LASF32
+ 606 018f 65030000 		.4byte	.LASF32
  607 0193 01       		.byte	0x1
  608 0194 42       		.byte	0x42
  609 0195 A1010000 		.4byte	0x1a1
@@ -657,15 +657,15 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  620 01af 5F       		.byte	0x5f
  621 01b0 00       		.byte	0
  622 01b1 03       		.uleb128 0x3
- 623 01b2 BD030000 		.4byte	.LASF33
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 12
+ 623 01b2 B1030000 		.4byte	.LASF33
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 12
 
 
  624 01b6 01       		.byte	0x1
  625 01b7 43       		.byte	0x43
  626 01b8 C5000000 		.4byte	0xc5
  627 01bc 07       		.uleb128 0x7
- 628 01bd C7030000 		.4byte	.LASF34
+ 628 01bd BB030000 		.4byte	.LASF34
  629 01c1 01       		.byte	0x1
  630 01c2 58       		.byte	0x58
  631 01c3 91000000 		.4byte	0x91
@@ -678,7 +678,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  638 01d4 03       		.byte	0x3
  639 01d5 00000000 		.4byte	_vectors
  640 01d9 0F       		.uleb128 0xf
- 641 01da 5C030000 		.4byte	.LASF39
+ 641 01da 50030000 		.4byte	.LASF39
  642 01de 01       		.byte	0x1
  643 01df 4F       		.byte	0x4f
  644 01e0 00000000 		.4byte	.LFB112
@@ -698,8 +698,8 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  658 0200 00       		.byte	0
  659 0201 00       		.byte	0
  660 0202 12       		.uleb128 0x12
- 661 0203 95030000 		.4byte	.LASF40
- 662 0207 95030000 		.4byte	.LASF40
+ 661 0203 89030000 		.4byte	.LASF40
+ 662 0207 89030000 		.4byte	.LASF40
  663 020b 01       		.byte	0x1
  664 020c 4C       		.byte	0x4c
  665 020d 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  678 000a 0E       		.uleb128 0xe
  679 000b 55       		.uleb128 0x55
  680 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 13
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 13
 
 
  681 000d 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  735 0043 0B       		.uleb128 0xb
  736 0044 3B       		.uleb128 0x3b
  737 0045 05       		.uleb128 0x5
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 14
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 14
 
 
  738 0046 49       		.uleb128 0x49
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  792 007c 0B       		.uleb128 0xb
  793 007d 0D       		.uleb128 0xd
  794 007e 00       		.byte	0
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 15
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 15
 
 
  795 007f 03       		.uleb128 0x3
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  849 00b5 3A       		.uleb128 0x3a
  850 00b6 0B       		.uleb128 0xb
  851 00b7 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 16
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 16
 
 
  852 00b8 0B       		.uleb128 0xb
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  906 0006 00000000 		.4byte	.Ldebug_info0
  907 000a 04       		.byte	0x4
  908 000b 00       		.byte	0
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 17
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 17
 
 
  909 000c 0000     		.2byte	0
@@ -975,8 +975,8 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  920 000c 00000000 		.4byte	0
  921              		.section	.debug_line,"",%progbits
  922              	.Ldebug_line0:
- 923 0000 9B020000 		.section	.debug_str,"MS",%progbits,1
- 923      02008102 
+ 923 0000 4B020000 		.section	.debug_str,"MS",%progbits,1
+ 923      02003102 
  923      00000201 
  923      FB0E0D00 
  923      01010101 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  936      6C657200 
  937              	.LASF3:
  938 00a0 73686F72 		.ascii	"short unsigned int\000"
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 18
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 18
 
 
  938      7420756E 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  960      6C657200 
  961              	.LASF36:
  962 0146 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 19
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 19
 
 
  962      43313120 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  978 02c0 76656374 		.ascii	"vector28\000"
  978      6F723238 
  978      00
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 20
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 20
 
 
  979              	.LASF35:
@@ -1167,197 +1167,197 @@ ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 1
  988      7265436C 
  988      6F636B00 
  989              	.LASF38:
- 990 0311 433A5C55 		.ascii	"C:\\Users\\amaia\\Documents\\EPFL_cours\\Microinfo\\"
+ 990 0311 433A5C55 		.ascii	"C:\\Users\\Loicc\\Documents\\EPFL\\Microinfo\\proje"
  990      73657273 
- 990      5C616D61 
- 990      69615C44 
+ 990      5C4C6F69 
+ 990      63635C44 
  990      6F63756D 
- 991 033f 5450206D 		.ascii	"TP microinfo\\TP5_Noisy\\Noisy\000"
- 991      6963726F 
- 991      696E666F 
- 991      5C545035 
- 991      5F4E6F69 
+ 991 033e 745F6D69 		.ascii	"t_microinfo\\Noisy\000"
+ 991      63726F69 
+ 991      6E666F5C 
+ 991      4E6F6973 
+ 991      7900
  992              	.LASF39:
- 993 035c 5F756E68 		.ascii	"_unhandled_exception\000"
+ 993 0350 5F756E68 		.ascii	"_unhandled_exception\000"
  993      616E646C 
  993      65645F65 
  993      78636570 
  993      74696F6E 
  994              	.LASF32:
- 995 0371 76656374 		.ascii	"vectors\000"
+ 995 0365 76656374 		.ascii	"vectors\000"
  995      6F727300 
  996              	.LASF2:
- 997 0379 73686F72 		.ascii	"short int\000"
+ 997 036d 73686F72 		.ascii	"short int\000"
  997      7420696E 
  997      7400
  998              	.LASF12:
- 999 0383 75696E74 		.ascii	"uint32_t\000"
+ 999 0377 75696E74 		.ascii	"uint32_t\000"
  999      33325F74 
  999      00
  1000              	.LASF4:
- 1001 038c 6C6F6E67 		.ascii	"long int\000"
+ 1001 0380 6C6F6E67 		.ascii	"long int\000"
  1001      20696E74 
  1001      00
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 21
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 21
 
 
  1002              	.LASF40:
- 1003 0395 63685379 		.ascii	"chSysHalt\000"
+ 1003 0389 63685379 		.ascii	"chSysHalt\000"
  1003      7348616C 
  1003      7400
  1004              	.LASF20:
- 1005 039f 6D656D6D 		.ascii	"memmanage_handler\000"
+ 1005 0393 6D656D6D 		.ascii	"memmanage_handler\000"
  1005      616E6167 
  1005      655F6861 
  1005      6E646C65 
  1005      7200
  1006              	.LASF0:
- 1007 03b1 7369676E 		.ascii	"signed char\000"
+ 1007 03a5 7369676E 		.ascii	"signed char\000"
  1007      65642063 
  1007      68617200 
  1008              	.LASF33:
- 1009 03bd 76656374 		.ascii	"vectors_t\000"
+ 1009 03b1 76656374 		.ascii	"vectors_t\000"
  1009      6F72735F 
  1009      7400
  1010              	.LASF34:
- 1011 03c7 5F5F6D61 		.ascii	"__main_stack_end__\000"
+ 1011 03bb 5F5F6D61 		.ascii	"__main_stack_end__\000"
  1011      696E5F73 
  1011      7461636B 
  1011      5F656E64 
  1011      5F5F00
  1012              	.LASF29:
- 1013 03da 76656374 		.ascii	"vector34\000"
+ 1013 03ce 76656374 		.ascii	"vector34\000"
  1013      6F723334 
  1013      00
  1014              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 22
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 vectors.c
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:18     .text._unhandled_exception:00000000 $t
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 _unhandled_exception
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:54     .text._unhandled_exception:00000014 $d
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1BC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1B8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1B4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1B0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1AC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1A8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1A4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1A0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector19C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector198
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector194
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector190
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector18C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector188
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector184
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector180
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector17C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector178
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector174
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector170
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector16C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector168
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector164
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector160
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector15C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector158
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector154
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector150
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector14C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector148
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector144
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector140
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector13C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector138
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector134
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector130
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector12C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector128
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector124
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector120
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector11C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector118
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector114
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector110
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector10C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector108
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector104
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector100
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorFC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorF8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorF4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorF0
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 23
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:18     .text._unhandled_exception:00000000 $t
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 _unhandled_exception
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:54     .text._unhandled_exception:00000014 $d
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1BC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1B8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1B4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1B0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1AC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1A8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1A4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1A0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector19C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector198
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector194
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector190
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector18C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector188
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector184
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector180
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector17C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector178
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector174
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector170
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector16C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector168
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector164
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector160
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector15C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector158
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector154
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector150
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector14C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector148
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector144
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector140
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector13C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector138
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector134
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector130
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector12C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector128
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector124
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector120
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector11C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector118
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector114
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector110
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector10C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector108
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector104
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector100
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorFC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorF8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorF4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorF0
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 23
 
 
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorEC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorE8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorE4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorE0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorDC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorD8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorD4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorD0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorCC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorC8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorC4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorC0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorBC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorB8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorB4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorB0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorAC
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorA8
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorA4
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 VectorA0
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector9C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector98
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector94
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector90
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector8C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector88
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector84
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector80
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector7C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector78
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector74
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector70
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector6C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector68
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector64
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector60
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector5C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector58
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector54
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector50
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector4C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector48
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector44
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector40
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 SysTick_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 PendSV_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector34
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 DebugMon_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 SVC_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector28
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector24
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector20
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Vector1C
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 UsageFault_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 BusFault_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 MemManage_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 HardFault_Handler
-ARM GAS  C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s 			page 24
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorEC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorE8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorE4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorE0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorDC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorD8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorD4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorD0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorCC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorC8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorC4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorC0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorBC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorB8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorB4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorB0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorAC
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorA8
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorA4
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 VectorA0
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector9C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector98
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector94
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector90
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector8C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector88
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector84
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector80
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector7C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector78
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector74
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector70
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector6C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector68
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector64
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector60
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector5C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector58
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector54
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector50
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector4C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector48
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector44
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector40
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 SysTick_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 PendSV_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector34
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 DebugMon_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 SVC_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector28
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector24
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector20
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Vector1C
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 UsageFault_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 BusFault_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 MemManage_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 HardFault_Handler
+ARM GAS  C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s 			page 24
 
 
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 NMI_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:26     .text._unhandled_exception:00000000 Reset_Handler
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:290    .vectors:00000000 _vectors
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:283    .rodata._unhandled_exception.str1.4:00000000 $d
-C:\Users\amaia\AppData\Local\Temp\ccCz9qfF.s:287    .vectors:00000000 $d
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 NMI_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:26     .text._unhandled_exception:00000000 Reset_Handler
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:290    .vectors:00000000 _vectors
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:283    .rodata._unhandled_exception.str1.4:00000000 $d
+C:\Users\Loicc\AppData\Local\Temp\ccO3dTTR.s:287    .vectors:00000000 $d
 
 UNDEFINED SYMBOLS
 chSysHalt
