@@ -77,10 +77,8 @@ void proxthd(void) {
 }
 
 void obstacle_detection(void) {
-	/*if () {//obstacle detecté.....................
+	if (prox_value[PROX_FRONT_RIGHT_F]>10 || prox_value[PROX_FRONT_RIGHT_R]>10 || prox_value[PROX_RIGHT]>10 || prox_value[PROX_BACK_RIGHT]>10 || prox_value[PROX_BACK_LEFT]>10 || prox_value[PROX_LEFT]>10 || prox_value[PROX_FRONT_LEFT_L]>10 || prox_value[PROX_FRONT_LEFT_F]>10) {
 		left_motor_set_speed(0);
 		right_motor_set_speed(0);
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
-	}*/
+	}
 }
