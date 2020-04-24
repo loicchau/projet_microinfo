@@ -34,7 +34,7 @@
 #define NB_PROX_SENSOR			9
 
 static float prox_value[NB_PROX_SENSOR];
-//bool motor_stop=false;
+
 
 void sensors_init(void) {
     // TOF sensor
@@ -77,7 +77,8 @@ void proxthd(void) {
 	chThdCreateStatic(waProxThread, sizeof(waProxThread), NORMALPRIO, ProxThread, NULL);
 }
 
-void obstacle_detection(bool motor_stop) {
+uint8_t obstacle_detection(void) {
+	uint8_t motor_stop = 0;
 	if (prox_value[PROX_FRONT_RIGHT_F]>10 || prox_value[PROX_FRONT_RIGHT_R]>10 || prox_value[PROX_RIGHT]>10 || prox_value[PROX_BACK_RIGHT]>10 || prox_value[PROX_BACK_LEFT]>10 || prox_value[PROX_LEFT]>10 || prox_value[PROX_FRONT_LEFT_L]>10 || prox_value[PROX_FRONT_LEFT_F]>10) {
 		motor_stop = true;
 	}
@@ -85,5 +86,4 @@ void obstacle_detection(bool motor_stop) {
 		motor_stop = false;
 	}
 	return motor_stop;
-
 }

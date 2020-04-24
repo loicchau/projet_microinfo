@@ -5,6 +5,7 @@
 #include <chprintf.h>
 
 #include <motors.h>
+#include <detection.h>
 #include <audio/microphone.h>
 #include <audio_processing.h>
 #include <fft.h>
@@ -41,51 +42,14 @@ static float micBack_output[FFT_SIZE];
 *	and to execute a motor command depending on it
 */
 void sound_remote(float* front){
+	uint8_t motor_stop = 0;
 	float mag_average_left = 0, mag_average_right = 0;
 	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
-	//search for the highest peak
-	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-		mag_average_left += micLeft_output[i]/(MAX_FREQ-MIN_FREQ);
-		mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
-		//mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
-		if(front[i] > MIN_VALUE_THRESHOLD){
-			max_norm_index = i;
-		}
-	}
 
-	//
-	if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD){
-				left_motor_set_speed(-300);
-				right_motor_set_speed(300);
-
-				palWritePad(GPIOD, GPIOD_LED1, 1);
-				palWritePad(GPIOD, GPIOD_LED3, 1);
-				palWritePad(GPIOD, GPIOD_LED5, 1);
-				palWritePad(GPIOD, GPIOD_LED7, 0);
-			}
-			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD){
-				left_motor_set_speed(300);
-				right_motor_set_speed(-300);
-
-				palWritePad(GPIOD, GPIOD_LED1, 1);
-				palWritePad(GPIOD, GPIOD_LED3, 0);
-				palWritePad(GPIOD, GPIOD_LED5, 1);
-				palWritePad(GPIOD, GPIOD_LED7, 1);
-			}
-			else{
-				left_motor_set_speed(300);
-				right_motor_set_speed(300);
-
-				palWritePad(GPIOD, GPIOD_LED1, 0);
-				palWritePad(GPIOD, GPIOD_LED3, 1);
-				palWritePad(GPIOD, GPIOD_LED5, 1);
-				palWritePad(GPIOD, GPIOD_LED7, 1);
-			}
-	}
-	else{
+	motor_stop = obstacle_detection();
+	if(motor_stop){
 		left_motor_set_speed(0);
 		right_motor_set_speed(0);
 
@@ -95,6 +59,57 @@ void sound_remote(float* front){
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
 	
+	else{
+		//search for the highest peak
+		for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
+			mag_average_left += micLeft_output[i]/(MAX_FREQ-MIN_FREQ);
+			mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
+			//mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
+			if(front[i] > MIN_VALUE_THRESHOLD){
+				max_norm_index = i;
+			}
+		}
+
+		//
+		if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
+				if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD){
+					left_motor_set_speed(-300);
+					right_motor_set_speed(300);
+
+					palWritePad(GPIOD, GPIOD_LED1, 1);
+					palWritePad(GPIOD, GPIOD_LED3, 1);
+					palWritePad(GPIOD, GPIOD_LED5, 1);
+					palWritePad(GPIOD, GPIOD_LED7, 0);
+				}
+				else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD){
+					left_motor_set_speed(300);
+					right_motor_set_speed(-300);
+
+					palWritePad(GPIOD, GPIOD_LED1, 1);
+					palWritePad(GPIOD, GPIOD_LED3, 0);
+					palWritePad(GPIOD, GPIOD_LED5, 1);
+					palWritePad(GPIOD, GPIOD_LED7, 1);
+				}
+				else{
+					left_motor_set_speed(300);
+					right_motor_set_speed(300);
+
+					palWritePad(GPIOD, GPIOD_LED1, 0);
+					palWritePad(GPIOD, GPIOD_LED3, 1);
+					palWritePad(GPIOD, GPIOD_LED5, 1);
+					palWritePad(GPIOD, GPIOD_LED7, 1);
+				}
+		}
+		else{
+			left_motor_set_speed(0);
+			right_motor_set_speed(0);
+
+			palWritePad(GPIOD, GPIOD_LED1, 1);
+			palWritePad(GPIOD, GPIOD_LED3, 1);
+			palWritePad(GPIOD, GPIOD_LED5, 1);
+			palWritePad(GPIOD, GPIOD_LED7, 1);
+		}
+	}
 }
 
 /*
