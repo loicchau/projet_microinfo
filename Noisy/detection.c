@@ -34,7 +34,7 @@
 #define NB_PROX_SENSOR			9
 
 static float prox_value[NB_PROX_SENSOR];
-int dist_from_obstacle;
+//int dist_from_obstacle;
 
 void sensors_init(void) {
     // TOF sensor
@@ -45,12 +45,13 @@ void sensors_init(void) {
     chThdSleepMilliseconds(500);
 }
 
-static THD_WORKING_AREA(waProxThread, 512);
+static THD_WORKING_AREA(waProxThread, 1024);
 static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 	 (void) arg;
 	 chRegSetThreadName(__FUNCTION__);
 
 	 while(1){
+		 prox_value[0] = 0;
 		 prox_value[PROX_FRONT_RIGHT_F]=get_calibrated_prox(PROX_FRONT_RIGHT_F);
 		 prox_value[PROX_FRONT_RIGHT_R]=get_calibrated_prox(PROX_FRONT_RIGHT_R);
 		 prox_value[PROX_RIGHT]=get_calibrated_prox(PROX_RIGHT);
@@ -60,7 +61,7 @@ static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 		 prox_value[PROX_FRONT_LEFT_L]=get_calibrated_prox(PROX_FRONT_LEFT_L);
 		 prox_value[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
 
-		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_F]= %f \n", prox_value[PROX_FRONT_RIGHT_F]);
+		 //chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_F]= %f \n", prox_value[PROX_FRONT_RIGHT_F]);
 		/* chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_RIGHT_R]= %f \n", prox_value[PROX_FRONT_RIGHT_R]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_RIGHT]= %f \n", prox_value[PROX_RIGHT]);
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_BACK_RIGHT]= %f \n", prox_value[PROX_BACK_RIGHT]);
@@ -74,7 +75,7 @@ static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 
 		 avoid_obstacle();
 
-		// chThdSleepMilliseconds(500);
+		chThdSleepMilliseconds(100);
 
 	 }
 }
@@ -95,12 +96,12 @@ uint8_t obstacle_detection(void) {
 }
 
 void avoid_obstacle(void) {
-	if (prox_value[PROX_FRONT_RIGHT_F]>10 || prox_value[PROX_FRONT_RIGHT_R]>10) {
-		left_motor_set_speed(300);
-		right_motor_set_speed(-300);
-	}
-	if (prox_value[PROX_FRONT_LEFT_L]>10 || prox_value[PROX_FRONT_LEFT_F]>10) {
+	if (prox_value[PROX_RIGHT]>20 || prox_value[PROX_FRONT_RIGHT_R]>20) {
 		left_motor_set_speed(-300);
 		right_motor_set_speed(300);
+	}
+	else if (prox_value[PROX_LEFT]>20 || prox_value[PROX_FRONT_LEFT_F]>20) {
+		left_motor_set_speed(300);
+		right_motor_set_speed(-300);
 	}
 }
