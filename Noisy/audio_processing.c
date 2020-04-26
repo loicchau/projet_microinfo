@@ -48,7 +48,7 @@ void sound_remote(float* front){
 	volatile int16_t max_norm_index = -1;
 
 
-	motor_stop = obstacle_detection();
+	//motor_stop = obstacle_detection();
 	if(motor_stop){
 		left_motor_set_speed(0);
 		right_motor_set_speed(0);
