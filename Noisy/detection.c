@@ -34,7 +34,7 @@
 #define NB_PROX_SENSOR			9
 
 static float prox_value[NB_PROX_SENSOR];
-
+int dist_from_obstacle;
 
 void sensors_init(void) {
     // TOF sensor
@@ -46,7 +46,7 @@ void sensors_init(void) {
 }
 
 static THD_WORKING_AREA(waProxThread, 512);
-static THD_FUNCTION(ProxThread, arg) {
+static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 	 (void) arg;
 	 chRegSetThreadName(__FUNCTION__);
 
@@ -70,6 +70,11 @@ static THD_FUNCTION(ProxThread, arg) {
 		 chprintf((BaseSequentialStream *)&SD3,"prox_value[PROX_FRONT_LEFT_F]= %f \n", prox_value[PROX_FRONT_LEFT_F]);*/
 
 		// chThdSleepMilliseconds(500);
+
+		 dist_from_obstacle = VL53L0X_get_dist_mm();
+
+		 chprintf((BaseSequentialStream *)&SD3,"dist_from_obstacle = %f \n", dist_from_obstacle);
+
 	 }
 }
 
