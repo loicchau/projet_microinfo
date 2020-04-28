@@ -42,19 +42,28 @@ static float micBack_output[FFT_SIZE];
 *	and to execute a motor command depending on it
 */
 void sound_remote(float* front){
-	uint8_t motor_stop = 0;
+	uint8_t obstacle = 0;
 	float mag_average_left = 0, mag_average_right = 0;
 	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
 
-	//motor_stop = obstacle_detection();
-	if(motor_stop){
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
+	obstacle = avoid_obstacle();
+	if(obstacle == 1){
+		left_motor_set_speed(-300);
+		right_motor_set_speed(300);
 
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 0);
+	}
+	else if(obstacle == 2){
+		left_motor_set_speed(300);
+		right_motor_set_speed(-300);
+
+		palWritePad(GPIOD, GPIOD_LED1, 1);
+		palWritePad(GPIOD, GPIOD_LED3, 0);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
