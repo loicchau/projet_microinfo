@@ -73,8 +73,6 @@ static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 		 //dist_from_obstacle = VL53L0X_get_dist_mm();
 		 //chprintf((BaseSequentialStream *)&SD3,"dist_from_obstacle = %f \n", dist_from_obstacle);
 
-		 avoid_obstacle();
-
 		chThdSleepMilliseconds(100);
 
 	 }
@@ -95,13 +93,13 @@ uint8_t obstacle_detection(void) {
 	return motor_stop;
 }
 
-void avoid_obstacle(void) {
+uint8_t avoid_obstacle(void) {
+	uint8_t turn_motor = 0;
 	if (prox_value[PROX_RIGHT]>20 || prox_value[PROX_FRONT_RIGHT_R]>20) {
-		left_motor_set_speed(-300);
-		right_motor_set_speed(300);
+		turn_motor = 1;
 	}
 	else if (prox_value[PROX_LEFT]>20 || prox_value[PROX_FRONT_LEFT_F]>20) {
-		left_motor_set_speed(300);
-		right_motor_set_speed(-300);
+		turn_motor = 2;
 	}
+	return turn_motor;
 }
