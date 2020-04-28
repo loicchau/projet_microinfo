@@ -28,6 +28,7 @@ static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD 10000
 #define MIN_MAG_THRESHOLD 2000
+#define MIN_PROX_THRESHOLD 20
 
 #define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
 #define FREQ_MOVE		19	//375Hz
@@ -42,14 +43,14 @@ static float micBack_output[FFT_SIZE];
 *	and to execute a motor command depending on it
 */
 void sound_remote(float* front){
-	uint8_t obstacle = 0;
+	float sens_values[NB_PROX_SENSOR];
 	float mag_average_left = 0, mag_average_right = 0;
 	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
+	obstacle_detection(sens_values);
 
-	obstacle = avoid_obstacle();
-	if(obstacle == 1){
+	if(sens_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && sens_values[PROX_RIGHT] < sens_values[PROX_FRONT_RIGHT_R]){
 		left_motor_set_speed(-300);
 		right_motor_set_speed(300);
 
@@ -58,12 +59,30 @@ void sound_remote(float* front){
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 0);
 	}
-	else if(obstacle == 2){
+	else if(sens_values[PROX_RIGHT] > MIN_PROX_THRESHOLD && sens_values[PROX_RIGHT] > sens_values[PROX_FRONT_RIGHT_R]){
+		left_motor_set_speed(300);
+		right_motor_set_speed(300);
+
+		palWritePad(GPIOD, GPIOD_LED1, 0);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
+	}
+	else if(sens_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && sens_values[PROX_LEFT] < sens_values[PROX_FRONT_LEFT_L]){
 		left_motor_set_speed(300);
 		right_motor_set_speed(-300);
 
 		palWritePad(GPIOD, GPIOD_LED1, 1);
 		palWritePad(GPIOD, GPIOD_LED3, 0);
+		palWritePad(GPIOD, GPIOD_LED5, 1);
+		palWritePad(GPIOD, GPIOD_LED7, 1);
+	}
+	else if(sens_values[PROX_LEFT] > MIN_PROX_THRESHOLD && sens_values[PROX_LEFT] > sens_values[PROX_FRONT_LEFT_L]){
+		left_motor_set_speed(300);
+		right_motor_set_speed(300);
+
+		palWritePad(GPIOD, GPIOD_LED1, 0);
+		palWritePad(GPIOD, GPIOD_LED3, 1);
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
