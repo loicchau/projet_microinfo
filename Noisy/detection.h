@@ -14,8 +14,6 @@
 
 void sensors_init(void);
 
-//void proxthd(void);
-
-void obstacle_detection(float* sens_values, uint16_t* dist_from_obstacle);
+void obstacle_detection(float* prox_values, uint16_t* dist_from_obstacle);
 
 #endif /* DETECTION_H */
