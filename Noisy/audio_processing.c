@@ -44,11 +44,12 @@ static float micBack_output[FFT_SIZE];
 */
 void sound_remote(float* front){
 	float sens_values[NB_PROX_SENSOR];
+	uint16_t dist_from_obstacle;
 	float mag_average_left = 0, mag_average_right = 0;
 	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
-	obstacle_detection(sens_values);
+	obstacle_detection(sens_values, &dist_from_obstacle);
 
 	if(sens_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && sens_values[PROX_RIGHT] < sens_values[PROX_FRONT_RIGHT_R]){
 		left_motor_set_speed(-300);

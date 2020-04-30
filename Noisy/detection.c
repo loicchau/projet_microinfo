@@ -23,8 +23,7 @@
 #define PINPROX_FRONT_LEFT49		GPIOC, 1*/
 
 
-static float prox_value[NB_PROX_SENSOR];
-//int dist_from_obstacle;
+//static float prox_value[NB_PROX_SENSOR];
 
 void sensors_init(void) {
     // TOF sensor
@@ -34,7 +33,7 @@ void sensors_init(void) {
     calibrate_ir();
     chThdSleepMilliseconds(500);
 }
-
+/*
 static THD_WORKING_AREA(waProxThread, 1024);
 static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 	 (void) arg;
@@ -50,21 +49,25 @@ static THD_FUNCTION(ProxThread, arg) { //changer le nom par sensorthread
 		 prox_value[PROX_FRONT_LEFT_L]=get_calibrated_prox(PROX_FRONT_LEFT_L);
 		 prox_value[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
 
-		 //dist_from_obstacle = VL53L0X_get_dist_mm();
-		 //chprintf((BaseSequentialStream *)&SD3,"dist_from_obstacle = %f \n", dist_from_obstacle);
-
 		 chThdSleepMilliseconds(20);
-
 	 }
 }
 
 void proxthd(void) {
 	chThdCreateStatic(waProxThread, sizeof(waProxThread), NORMALPRIO, ProxThread, NULL);
-}
+}*/
 
-void obstacle_detection(float* sens_values) {
-	for(uint8_t i = 0 ; i < NB_PROX_SENSOR ; i++){
-		sens_values[i] = prox_value[i];
-	}
+void obstacle_detection(float* sens_values, uint16_t* dist_from_obstacle) {
+
+	sens_values[PROX_FRONT_RIGHT_F]=get_calibrated_prox(PROX_FRONT_RIGHT_F);
+	sens_values[PROX_FRONT_RIGHT_R]=get_calibrated_prox(PROX_FRONT_RIGHT_R);
+	sens_values[PROX_RIGHT]=get_calibrated_prox(PROX_RIGHT);
+	sens_values[PROX_BACK_RIGHT]=get_calibrated_prox(PROX_BACK_RIGHT);
+	sens_values[PROX_BACK_LEFT]=get_calibrated_prox(PROX_BACK_LEFT);
+	sens_values[PROX_LEFT]=get_calibrated_prox(PROX_LEFT);
+	sens_values[PROX_FRONT_LEFT_L]=get_calibrated_prox(PROX_FRONT_LEFT_L);
+	sens_values[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
+
+	*dist_from_obstacle = VL53L0X_get_dist_mm();
 }
 
