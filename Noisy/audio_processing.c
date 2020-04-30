@@ -27,9 +27,10 @@ static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD 10000
-#define MIN_MAG_THRESHOLD 2000
+#define MIN_MAG_THRESHOLD_RIGHT 2500
+#define MIN_MAG_THRESHOLD_LEFT 500
 #define MIN_PROX_THRESHOLD 50
-#define MIN_DIST_THRESHOLD 200
+#define MIN_DIST_THRESHOLD 300
 
 #define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
 #define FREQ_MOVE		19	//297Hz
@@ -43,14 +44,14 @@ static float micBack_output[FFT_SIZE];
 *	Simple function used to detect the highest value in a buffer
 *	and to execute a motor command depending on it
 */
-void sound_remote(float* front){
+void sound_remote(float* back){
 	float prox_values[NB_PROX_SENSOR];
-	uint16_t dist_from_obstacle;
+	float phase_average_left = 0, phase_average_right = 0;
 	float mag_average_left = 0, mag_average_right = 0;
 	//float mag_average_front = 0;
 	volatile int16_t max_norm_index = -1;
 
-	obstacle_detection(prox_values, &dist_from_obstacle);
+	obstacle_detection(prox_values);
 
 	if(prox_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && prox_values[PROX_RIGHT] < prox_values[PROX_FRONT_RIGHT_R]){
 		left_motor_set_speed(-300);
@@ -87,50 +88,33 @@ void sound_remote(float* front){
 	
 	else{
 		//search for the highest peak
-		for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-			mag_average_left += micLeft_output[i]/(MAX_FREQ-MIN_FREQ);
-			mag_average_right += micRight_output[i]/(MAX_FREQ-MIN_FREQ);
+		for(uint16_t i = 2*MIN_FREQ ; i <= 2*MAX_FREQ ; i+=2){
+			phase_average_right += atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
+			phase_average_left += atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
+			mag_average_left += micLeft_output[i/2]/(MAX_FREQ-MIN_FREQ);
+			mag_average_right += micRight_output[i/2]/(MAX_FREQ-MIN_FREQ);
 			//mag_average_front += micFront_output[i]/(MAX_FREQ-MIN_FREQ);
-			if(front[i] > MIN_VALUE_THRESHOLD){
-				max_norm_index = i;
+			if(back[i/2] > MIN_VALUE_THRESHOLD){
+				max_norm_index = i/2;
 			}
 		}
-
 		//
 		if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD/2){
-				if(dist_from_obstacle < MIN_DIST_THRESHOLD){
-					left_motor_set_speed(0);
-					right_motor_set_speed(300);
-					palWritePad(GPIOD, GPIOD_LED1, 0);
-					palWritePad(GPIOD, GPIOD_LED3, 1);
-					palWritePad(GPIOD, GPIOD_LED5, 1);
-					palWritePad(GPIOD, GPIOD_LED7, 0);
-				}else{
-					left_motor_set_speed(-300);
-					right_motor_set_speed(300);
-					palWritePad(GPIOD, GPIOD_LED1, 1);
-					palWritePad(GPIOD, GPIOD_LED3, 1);
-					palWritePad(GPIOD, GPIOD_LED5, 1);
-					palWritePad(GPIOD, GPIOD_LED7, 0);
-				}
+			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD_LEFT && phase_average_left > phase_average_right){//||
+				left_motor_set_speed(-300);
+				right_motor_set_speed(300);
+				palWritePad(GPIOD, GPIOD_LED1, 1);
+				palWritePad(GPIOD, GPIOD_LED3, 1);
+				palWritePad(GPIOD, GPIOD_LED5, 1);
+				palWritePad(GPIOD, GPIOD_LED7, 0);
 			}
-			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD){
-				if(dist_from_obstacle < MIN_DIST_THRESHOLD){
-					left_motor_set_speed(300);
-					right_motor_set_speed(0);
-					palWritePad(GPIOD, GPIOD_LED1, 0);
-					palWritePad(GPIOD, GPIOD_LED3, 1);
-					palWritePad(GPIOD, GPIOD_LED5, 1);
-					palWritePad(GPIOD, GPIOD_LED7, 0);
-				}else{
-					left_motor_set_speed(300);
-					right_motor_set_speed(-300);
-					palWritePad(GPIOD, GPIOD_LED1, 1);
-					palWritePad(GPIOD, GPIOD_LED3, 0);
-					palWritePad(GPIOD, GPIOD_LED5, 1);
-					palWritePad(GPIOD, GPIOD_LED7, 1);
-				}
+			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD_RIGHT && phase_average_left < phase_average_right){
+				left_motor_set_speed(300);
+				right_motor_set_speed(-300);
+				palWritePad(GPIOD, GPIOD_LED1, 1);
+				palWritePad(GPIOD, GPIOD_LED3, 0);
+				palWritePad(GPIOD, GPIOD_LED5, 1);
+				palWritePad(GPIOD, GPIOD_LED7, 1);
 			}
 			else{
 				left_motor_set_speed(300);
@@ -224,6 +208,6 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		nb_samples = 0;
 
-		sound_remote(micFront_output);
+		sound_remote(micBack_output);
 	}
 }
