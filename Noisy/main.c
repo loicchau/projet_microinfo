@@ -66,11 +66,9 @@ int main(void)
     timer12_start();
     //inits the motors
     motors_init();
-    //start sensors_init
-    sensors_init();
 
-    //create thread for prox sensors
-    //proxthd();
+    //start the proximity sensors and the TOF sensor processing thread
+    sensors_init();
 
     //starts the microphones processing thread.
     //it calls the callback given in parameter when samples are ready
