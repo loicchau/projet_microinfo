@@ -15,13 +15,13 @@
 
 void sensors_init(void) {
     // TOF sensor
-    VL53L0X_start();
+    //VL53L0X_start();
     // Proximity sensors
     proximity_start();
     calibrate_ir();
 }
 
-void obstacle_detection(float* prox_values, uint16_t* dist_from_obstacle) {
+void obstacle_detection(float* prox_values) {
 
 	prox_values[PROX_FRONT_RIGHT_F]=get_calibrated_prox(PROX_FRONT_RIGHT_F);
 	prox_values[PROX_FRONT_RIGHT_R]=get_calibrated_prox(PROX_FRONT_RIGHT_R);
@@ -32,6 +32,5 @@ void obstacle_detection(float* prox_values, uint16_t* dist_from_obstacle) {
 	prox_values[PROX_FRONT_LEFT_L]=get_calibrated_prox(PROX_FRONT_LEFT_L);
 	prox_values[PROX_FRONT_LEFT_F]=get_calibrated_prox(PROX_FRONT_LEFT_F);
 
-	*dist_from_obstacle = VL53L0X_get_dist_mm();
 }
 
