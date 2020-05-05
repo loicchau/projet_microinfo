@@ -26,11 +26,11 @@ static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
-#define MIN_VALUE_THRESHOLD 10000
-#define MIN_MAG_THRESHOLD_RIGHT 2500
+#define MIN_VALUE_THRESHOLD 15000
+#define MIN_MAG_THRESHOLD_RIGHT 2200
 #define MIN_MAG_THRESHOLD_LEFT 500
 #define MIN_PROX_THRESHOLD 50
-#define MIN_DIST_THRESHOLD 300
+#define MAX_PROX_THRESHOLD 250
 
 #define MIN_FREQ		16	//we don't analyze before this index to not use resources for nothing
 #define FREQ_MOVE		19	//297Hz
@@ -63,12 +63,21 @@ void sound_remote(float* back){
 		palWritePad(GPIOD, GPIOD_LED7, 0);
 	}
 	else if(prox_values[PROX_RIGHT] > MIN_PROX_THRESHOLD && prox_values[PROX_RIGHT] > prox_values[PROX_FRONT_RIGHT_R]){
-		left_motor_set_speed(300);
-		right_motor_set_speed(300);
-		palWritePad(GPIOD, GPIOD_LED1, 0);
-		palWritePad(GPIOD, GPIOD_LED3, 1);
-		palWritePad(GPIOD, GPIOD_LED5, 1);
-		palWritePad(GPIOD, GPIOD_LED7, 1);
+		if(prox_values[PROX_FRONT_RIGHT_R] > MAX_PROX_THRESHOLD){
+			left_motor_set_speed(-300);
+			right_motor_set_speed(300);
+			palWritePad(GPIOD, GPIOD_LED1, 1);
+			palWritePad(GPIOD, GPIOD_LED3, 1);
+			palWritePad(GPIOD, GPIOD_LED5, 1);
+			palWritePad(GPIOD, GPIOD_LED7, 0);
+		}else{
+			left_motor_set_speed(300);
+			right_motor_set_speed(300);
+			palWritePad(GPIOD, GPIOD_LED1, 0);
+			palWritePad(GPIOD, GPIOD_LED3, 1);
+			palWritePad(GPIOD, GPIOD_LED5, 1);
+			palWritePad(GPIOD, GPIOD_LED7, 1);
+		}
 	}
 	else if(prox_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && (prox_values[PROX_LEFT] < prox_values[PROX_FRONT_LEFT_L] ||
 																	prox_values[PROX_FRONT_LEFT_L] < prox_values[PROX_FRONT_LEFT_F])){
@@ -80,12 +89,21 @@ void sound_remote(float* back){
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
 	else if(prox_values[PROX_LEFT] > MIN_PROX_THRESHOLD && prox_values[PROX_LEFT] > prox_values[PROX_FRONT_LEFT_L]){
-		left_motor_set_speed(300);
-		right_motor_set_speed(300);
-		palWritePad(GPIOD, GPIOD_LED1, 0);
-		palWritePad(GPIOD, GPIOD_LED3, 1);
-		palWritePad(GPIOD, GPIOD_LED5, 1);
-		palWritePad(GPIOD, GPIOD_LED7, 1);
+		if(prox_values[PROX_FRONT_LEFT_L] > MAX_PROX_THRESHOLD){
+			left_motor_set_speed(300);
+			right_motor_set_speed(-300);
+			palWritePad(GPIOD, GPIOD_LED1, 1);
+			palWritePad(GPIOD, GPIOD_LED3, 1);
+			palWritePad(GPIOD, GPIOD_LED5, 1);
+			palWritePad(GPIOD, GPIOD_LED7, 0);
+		}else{
+			left_motor_set_speed(300);
+			right_motor_set_speed(300);
+			palWritePad(GPIOD, GPIOD_LED1, 0);
+			palWritePad(GPIOD, GPIOD_LED3, 1);
+			palWritePad(GPIOD, GPIOD_LED5, 1);
+			palWritePad(GPIOD, GPIOD_LED7, 1);
+		}
 	}
 	
 	else{
