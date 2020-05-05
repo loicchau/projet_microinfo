@@ -53,7 +53,8 @@ void sound_remote(float* back){
 
 	obstacle_detection(prox_values);
 
-	if(prox_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && prox_values[PROX_RIGHT] < prox_values[PROX_FRONT_RIGHT_R]){
+	if(prox_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && (prox_values[PROX_RIGHT] < prox_values[PROX_FRONT_RIGHT_R] ||
+																prox_values[PROX_FRONT_RIGHT_R] < prox_values[PROX_FRONT_RIGHT_F])){
 		left_motor_set_speed(-300);
 		right_motor_set_speed(300);
 		palWritePad(GPIOD, GPIOD_LED1, 1);
@@ -69,7 +70,8 @@ void sound_remote(float* back){
 		palWritePad(GPIOD, GPIOD_LED5, 1);
 		palWritePad(GPIOD, GPIOD_LED7, 1);
 	}
-	else if(prox_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && prox_values[PROX_LEFT] < prox_values[PROX_FRONT_LEFT_L]){
+	else if(prox_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && (prox_values[PROX_LEFT] < prox_values[PROX_FRONT_LEFT_L] ||
+																	prox_values[PROX_FRONT_LEFT_L] < prox_values[PROX_FRONT_LEFT_F])){
 		left_motor_set_speed(300);
 		right_motor_set_speed(-300);
 		palWritePad(GPIOD, GPIOD_LED1, 1);
