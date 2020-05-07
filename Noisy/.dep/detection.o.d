@@ -1,15 +1,15 @@
 build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/ChibiOS//os/rt/include/ch.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdint.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_default_types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\features.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_newlib_version.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdint.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_default_types.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\features.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_newlib_version.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h \
  chconf.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chlicense.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/rt/include/chsystypes.h \
@@ -99,20 +99,20 @@ build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/mmc_spi.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/serial_usb.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\newlib.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\config.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\newlib.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\config.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
  ../../lib/e-puck2_main-processor/src/usbcfg.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h \
  main.h ../../lib/e-puck2_main-processor/src/camera/dcmi_camera.h \
  ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/dcmi.h \
  ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
@@ -120,23 +120,23 @@ build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
  ../../lib/e-puck2_main-processor/src/camera/po8030.h \
  ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_endian.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\select.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_sigset.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timeval.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\timespec.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timespec.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_pthreadtypes.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\sched.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\types.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_endian.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\select.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_sigset.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timeval.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\timespec.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timespec.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_pthreadtypes.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\sched.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\types.h \
  ../../lib/e-puck2_main-processor/src/parameter/parameter.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
  ../../lib/e-puck2_main-processor/src/motors.h \
  ../../lib/e-puck2_main-processor/src/sensors/proximity.h \
  ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/VL53L0X.h \
@@ -148,12 +148,12 @@ build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform.h \
  ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/../../core/inc/vl53l0x_def.h \
  ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h \
+ c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h \
  ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h \
  detection.h ../../lib/e-puck2_main-processor/src/audio/play_melody.h \
  ../../lib/e-puck2_main-processor/src/leds.h
@@ -162,23 +162,23 @@ build/obj/detection.o: detection.c \
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdint.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdint.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdint.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_default_types.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_default_types.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\features.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\features.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_newlib_version.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_newlib_version.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_intsup.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_stdint.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdbool.h:
 
 chconf.h:
 
@@ -360,33 +360,33 @@ mcuconf.h:
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/serial_usb.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\newlib.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\newlib.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\config.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\config.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
 
 ../../lib/e-puck2_main-processor/src/usbcfg.h:
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h:
 
 main.h:
 
@@ -404,39 +404,39 @@ main.h:
 
 ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_endian.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_endian.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\select.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\select.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_sigset.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_sigset.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timeval.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timeval.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\timespec.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\timespec.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timespec.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_timespec.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_pthreadtypes.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_pthreadtypes.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\sched.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\sched.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\types.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\types.h:
 
 ../../lib/e-puck2_main-processor/src/parameter/parameter.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
 
 ../../lib/e-puck2_main-processor/src/motors.h:
 
@@ -460,17 +460,17 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 
 ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h:
+c:\users\amaia\documents\epfl_cours\microinfo\eclipse_e-puck2_win32_29_jan_2020\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h:
 
 ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h:
 
