@@ -113,13 +113,7 @@ build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/src/usbcfg.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h \
- main.h ../../lib/e-puck2_main-processor/src/camera/dcmi_camera.h \
- ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/dcmi.h \
- ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h \
- ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h \
- ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h \
- ../../lib/e-puck2_main-processor/src/camera/po8030.h \
- ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
+ main.h ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h \
@@ -138,24 +132,7 @@ build/obj/detection.o: detection.c \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
  ../../lib/e-puck2_main-processor/src/motors.h \
- ../../lib/e-puck2_main-processor/src/sensors/proximity.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/VL53L0X.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api_strings.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_def.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_device.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_types.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/../../core/inc/vl53l0x_def.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h \
- ../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h \
- detection.h ../../lib/e-puck2_main-processor/src/audio/play_melody.h \
+ ../../lib/e-puck2_main-processor/src/sensors/proximity.h detection.h \
  ../../lib/e-puck2_main-processor/src/leds.h
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/rt/include/ch.h:
@@ -390,18 +367,6 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 
 main.h:
 
-../../lib/e-puck2_main-processor/src/camera/dcmi_camera.h:
-
-../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/dcmi.h:
-
-../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/dcmi_lld.h:
-
-../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_registry.h:
-
-../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/include/../ports/STM32/STM32F4xx/stm32_rcc.h:
-
-../../lib/e-puck2_main-processor/src/camera/po8030.h:
-
 ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h:
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
@@ -442,40 +407,6 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 
 ../../lib/e-puck2_main-processor/src/sensors/proximity.h:
 
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/VL53L0X.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api_strings.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_def.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_device.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_types.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/../../core/inc/vl53l0x_def.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\stdio.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\string.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\xlocale.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\strings.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\string.h:
-
-../../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h:
-
 detection.h:
-
-../../lib/e-puck2_main-processor/src/audio/play_melody.h:
 
 ../../lib/e-puck2_main-processor/src/leds.h:

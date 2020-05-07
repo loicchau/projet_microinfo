@@ -2816,250 +2816,257 @@ Disassembly of section .text:
 080021a0 <sound_remote>:
  80021a0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
  80021a4:	ed2d 8b04 	vpush	{d8-d9}
- 80021a8:	f8df a30c 	ldr.w	sl, [pc, #780]	; 80024b8 <sound_remote+0x318>
- 80021ac:	b08f      	sub	sp, #60	; 0x3c
- 80021ae:	f8da 3000 	ldr.w	r3, [sl]
- 80021b2:	930d      	str	r3, [sp, #52]	; 0x34
- 80021b4:	4683      	mov	fp, r0
- 80021b6:	f64f 73ff 	movw	r3, #65535	; 0xffff
- 80021ba:	a805      	add	r0, sp, #20
- 80021bc:	9103      	str	r1, [sp, #12]
- 80021be:	f8ad 3012 	strh.w	r3, [sp, #18]
- 80021c2:	f000 fa75 	bl	80026b0 <obstacle_detection>
- 80021c6:	ed9f 7aaf 	vldr	s14, [pc, #700]	; 8002484 <sound_remote+0x2e4>
- 80021ca:	eddd 7a06 	vldr	s15, [sp, #24]
- 80021ce:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80021d2:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80021d6:	ed9d 7a07 	vldr	s14, [sp, #28]
- 80021da:	dd0d      	ble.n	80021f8 <sound_remote+0x58>
- 80021dc:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80021e0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80021e4:	f300 8112 	bgt.w	800240c <sound_remote+0x26c>
- 80021e8:	eddd 6a05 	vldr	s13, [sp, #20]
- 80021ec:	eef4 7ae6 	vcmpe.f32	s15, s13
- 80021f0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80021f4:	f100 810a 	bmi.w	800240c <sound_remote+0x26c>
- 80021f8:	eddf 6aa2 	vldr	s13, [pc, #648]	; 8002484 <sound_remote+0x2e4>
- 80021fc:	eeb4 7ae6 	vcmpe.f32	s14, s13
- 8002200:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8002204:	dd19      	ble.n	800223a <sound_remote+0x9a>
- 8002206:	eef4 7ac7 	vcmpe.f32	s15, s14
- 800220a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800220e:	d514      	bpl.n	800223a <sound_remote+0x9a>
- 8002210:	ed9f 7a9d 	vldr	s14, [pc, #628]	; 8002488 <sound_remote+0x2e8>
- 8002214:	eef4 7ac7 	vcmpe.f32	s15, s14
- 8002218:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800221c:	f300 80f6 	bgt.w	800240c <sound_remote+0x26c>
- 8002220:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 8002224:	f001 fb7c 	bl	8003920 <left_motor_set_speed>
- 8002228:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 800222c:	f001 fb90 	bl	8003950 <right_motor_set_speed>
- 8002230:	4b96      	ldr	r3, [pc, #600]	; (800248c <sound_remote+0x2ec>)
- 8002232:	f44f 1400 	mov.w	r4, #2097152	; 0x200000
- 8002236:	2040      	movs	r0, #64	; 0x40
- 8002238:	e021      	b.n	800227e <sound_remote+0xde>
- 800223a:	eddd 7a0b 	vldr	s15, [sp, #44]	; 0x2c
- 800223e:	eddf 6a91 	vldr	s13, [pc, #580]	; 8002484 <sound_remote+0x2e4>
- 8002242:	ed9d 7a0a 	vldr	s14, [sp, #40]	; 0x28
- 8002246:	eef4 7ae6 	vcmpe.f32	s15, s13
- 800224a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800224e:	dd1f      	ble.n	8002290 <sound_remote+0xf0>
- 8002250:	eef4 7ac7 	vcmpe.f32	s15, s14
- 8002254:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8002258:	dc06      	bgt.n	8002268 <sound_remote+0xc8>
- 800225a:	eddd 6a0c 	vldr	s13, [sp, #48]	; 0x30
- 800225e:	eef4 7ae6 	vcmpe.f32	s15, s13
- 8002262:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8002266:	d513      	bpl.n	8002290 <sound_remote+0xf0>
- 8002268:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 800226c:	f001 fb58 	bl	8003920 <left_motor_set_speed>
- 8002270:	4887      	ldr	r0, [pc, #540]	; (8002490 <sound_remote+0x2f0>)
- 8002272:	f001 fb6d 	bl	8003950 <right_motor_set_speed>
- 8002276:	4b85      	ldr	r3, [pc, #532]	; (800248c <sound_remote+0x2ec>)
- 8002278:	2420      	movs	r4, #32
- 800227a:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
- 800227e:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 8002282:	f44f 6200 	mov.w	r2, #2048	; 0x800
- 8002286:	619c      	str	r4, [r3, #24]
- 8002288:	6198      	str	r0, [r3, #24]
- 800228a:	6199      	str	r1, [r3, #24]
- 800228c:	619a      	str	r2, [r3, #24]
- 800228e:	e0cf      	b.n	8002430 <sound_remote+0x290>
- 8002290:	eddf 6a7c 	vldr	s13, [pc, #496]	; 8002484 <sound_remote+0x2e4>
- 8002294:	eeb4 7ae6 	vcmpe.f32	s14, s13
- 8002298:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800229c:	f300 80d2 	bgt.w	8002444 <sound_remote+0x2a4>
- 80022a0:	ed9f 8a7c 	vldr	s16, [pc, #496]	; 8002494 <sound_remote+0x2f4>
- 80022a4:	4d7c      	ldr	r5, [pc, #496]	; (8002498 <sound_remote+0x2f8>)
- 80022a6:	eddf 9a7d 	vldr	s19, [pc, #500]	; 800249c <sound_remote+0x2fc>
- 80022aa:	ee18 7a10 	vmov	r7, s16
- 80022ae:	ee18 8a10 	vmov	r8, s16
- 80022b2:	eef0 8a48 	vmov.f32	s17, s16
- 80022b6:	2422      	movs	r4, #34	; 0x22
- 80022b8:	eeb5 9a00 	vmov.f32	s18, #80	; 0x3e800000  0.250
- 80022bc:	46b9      	mov	r9, r7
- 80022be:	f8d5 0088 	ldr.w	r0, [r5, #136]	; 0x88
- 80022c2:	f7ff f899 	bl	80013f8 <__aeabi_f2d>
- 80022c6:	e9cd 0100 	strd	r0, r1, [sp]
- 80022ca:	f8d5 008c 	ldr.w	r0, [r5, #140]	; 0x8c
- 80022ce:	f7ff f893 	bl	80013f8 <__aeabi_f2d>
- 80022d2:	ed9d 1b00 	vldr	d1, [sp]
- 80022d6:	ec41 0b10 	vmov	d0, r0, r1
- 80022da:	f009 f979 	bl	800b5d0 <atan2>
- 80022de:	2200      	movs	r2, #0
- 80022e0:	ec51 0b10 	vmov	r0, r1, d0
- 80022e4:	4b6e      	ldr	r3, [pc, #440]	; (80024a0 <sound_remote+0x300>)
- 80022e6:	f7ff f8e3 	bl	80014b0 <__aeabi_dmul>
- 80022ea:	4606      	mov	r6, r0
- 80022ec:	4640      	mov	r0, r8
- 80022ee:	460f      	mov	r7, r1
- 80022f0:	f7ff f882 	bl	80013f8 <__aeabi_f2d>
- 80022f4:	4602      	mov	r2, r0
- 80022f6:	460b      	mov	r3, r1
- 80022f8:	4630      	mov	r0, r6
- 80022fa:	4639      	mov	r1, r7
- 80022fc:	f7fe ff1e 	bl	800113c <__adddf3>
- 8002300:	4e68      	ldr	r6, [pc, #416]	; (80024a4 <sound_remote+0x304>)
- 8002302:	f7ff fbbd 	bl	8001a80 <__aeabi_d2f>
- 8002306:	eb06 0684 	add.w	r6, r6, r4, lsl #2
- 800230a:	4680      	mov	r8, r0
- 800230c:	6830      	ldr	r0, [r6, #0]
- 800230e:	f7ff f873 	bl	80013f8 <__aeabi_f2d>
- 8002312:	e9cd 0100 	strd	r0, r1, [sp]
- 8002316:	6870      	ldr	r0, [r6, #4]
- 8002318:	f7ff f86e 	bl	80013f8 <__aeabi_f2d>
- 800231c:	ed9d 1b00 	vldr	d1, [sp]
- 8002320:	ec41 0b10 	vmov	d0, r0, r1
- 8002324:	f009 f954 	bl	800b5d0 <atan2>
- 8002328:	2200      	movs	r2, #0
- 800232a:	ec51 0b10 	vmov	r0, r1, d0
- 800232e:	4b5c      	ldr	r3, [pc, #368]	; (80024a0 <sound_remote+0x300>)
- 8002330:	f7ff f8be 	bl	80014b0 <__aeabi_dmul>
- 8002334:	4606      	mov	r6, r0
- 8002336:	4648      	mov	r0, r9
- 8002338:	460f      	mov	r7, r1
- 800233a:	f7ff f85d 	bl	80013f8 <__aeabi_f2d>
- 800233e:	4602      	mov	r2, r0
- 8002340:	460b      	mov	r3, r1
- 8002342:	4630      	mov	r0, r6
- 8002344:	4639      	mov	r1, r7
- 8002346:	f7fe fef9 	bl	800113c <__adddf3>
- 800234a:	f7ff fb99 	bl	8001a80 <__aeabi_d2f>
- 800234e:	4956      	ldr	r1, [pc, #344]	; (80024a8 <sound_remote+0x308>)
- 8002350:	f3c4 024e 	ubfx	r2, r4, #1, #15
- 8002354:	0093      	lsls	r3, r2, #2
- 8002356:	18ce      	adds	r6, r1, r3
- 8002358:	4954      	ldr	r1, [pc, #336]	; (80024ac <sound_remote+0x30c>)
- 800235a:	edd6 6a00 	vldr	s13, [r6]
- 800235e:	4681      	mov	r9, r0
- 8002360:	18c8      	adds	r0, r1, r3
- 8002362:	eb0b 0103 	add.w	r1, fp, r3
- 8002366:	edd1 7a00 	vldr	s15, [r1]
- 800236a:	ed90 7a00 	vldr	s14, [r0]
- 800236e:	eef4 7ae9 	vcmpe.f32	s15, s19
- 8002372:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8002376:	eee6 8a89 	vfma.f32	s17, s13, s18
- 800237a:	eea7 8a09 	vfma.f32	s16, s14, s18
- 800237e:	dc08      	bgt.n	8002392 <sound_remote+0x1f2>
- 8002380:	9903      	ldr	r1, [sp, #12]
- 8002382:	440b      	add	r3, r1
- 8002384:	edd3 7a00 	vldr	s15, [r3]
- 8002388:	eef4 7ae9 	vcmpe.f32	s15, s19
- 800238c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8002390:	dd02      	ble.n	8002398 <sound_remote+0x1f8>
- 8002392:	b212      	sxth	r2, r2
- 8002394:	f8ad 2012 	strh.w	r2, [sp, #18]
- 8002398:	3402      	adds	r4, #2
- 800239a:	2c2c      	cmp	r4, #44	; 0x2c
- 800239c:	f105 0508 	add.w	r5, r5, #8
- 80023a0:	d18d      	bne.n	80022be <sound_remote+0x11e>
- 80023a2:	f8bd 3012 	ldrh.w	r3, [sp, #18]
- 80023a6:	b21b      	sxth	r3, r3
- 80023a8:	2b11      	cmp	r3, #17
- 80023aa:	4647      	mov	r7, r8
- 80023ac:	464e      	mov	r6, r9
- 80023ae:	dd5d      	ble.n	800246c <sound_remote+0x2cc>
- 80023b0:	f8bd 3012 	ldrh.w	r3, [sp, #18]
- 80023b4:	b21b      	sxth	r3, r3
- 80023b6:	2b14      	cmp	r3, #20
- 80023b8:	dc58      	bgt.n	800246c <sound_remote+0x2cc>
- 80023ba:	eddf 7a3d 	vldr	s15, [pc, #244]	; 80024b0 <sound_remote+0x310>
- 80023be:	ee78 7a27 	vadd.f32	s15, s16, s15
- 80023c2:	eef4 7ae8 	vcmpe.f32	s15, s17
- 80023c6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80023ca:	d416      	bmi.n	80023fa <sound_remote+0x25a>
- 80023cc:	eddf 7a39 	vldr	s15, [pc, #228]	; 80024b4 <sound_remote+0x314>
- 80023d0:	ee38 8a67 	vsub.f32	s16, s16, s15
- 80023d4:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 80023d8:	eeb4 8ae8 	vcmpe.f32	s16, s17
- 80023dc:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80023e0:	f77f af20 	ble.w	8002224 <sound_remote+0x84>
+ 80021a8:	4bb7      	ldr	r3, [pc, #732]	; (8002488 <sound_remote+0x2e8>)
+ 80021aa:	ed9f 8ab8 	vldr	s16, [pc, #736]	; 800248c <sound_remote+0x2ec>
+ 80021ae:	681b      	ldr	r3, [r3, #0]
+ 80021b0:	4db7      	ldr	r5, [pc, #732]	; (8002490 <sound_remote+0x2f0>)
+ 80021b2:	f8df b308 	ldr.w	fp, [pc, #776]	; 80024bc <sound_remote+0x31c>
+ 80021b6:	eddf 9ab7 	vldr	s19, [pc, #732]	; 8002494 <sound_remote+0x2f4>
+ 80021ba:	b08f      	sub	sp, #60	; 0x3c
+ 80021bc:	4682      	mov	sl, r0
+ 80021be:	930d      	str	r3, [sp, #52]	; 0x34
+ 80021c0:	a805      	add	r0, sp, #20
+ 80021c2:	2300      	movs	r3, #0
+ 80021c4:	9103      	str	r1, [sp, #12]
+ 80021c6:	f8ad 3012 	strh.w	r3, [sp, #18]
+ 80021ca:	ee18 7a10 	vmov	r7, s16
+ 80021ce:	f000 fa6f 	bl	80026b0 <obstacle_detection>
+ 80021d2:	ee18 8a10 	vmov	r8, s16
+ 80021d6:	eef0 8a48 	vmov.f32	s17, s16
+ 80021da:	2422      	movs	r4, #34	; 0x22
+ 80021dc:	eeb5 9a00 	vmov.f32	s18, #80	; 0x3e800000  0.250
+ 80021e0:	46b9      	mov	r9, r7
+ 80021e2:	f8d5 0088 	ldr.w	r0, [r5, #136]	; 0x88
+ 80021e6:	f7ff f907 	bl	80013f8 <__aeabi_f2d>
+ 80021ea:	e9cd 0100 	strd	r0, r1, [sp]
+ 80021ee:	f8d5 008c 	ldr.w	r0, [r5, #140]	; 0x8c
+ 80021f2:	f7ff f901 	bl	80013f8 <__aeabi_f2d>
+ 80021f6:	ed9d 1b00 	vldr	d1, [sp]
+ 80021fa:	ec41 0b10 	vmov	d0, r0, r1
+ 80021fe:	f009 f9e7 	bl	800b5d0 <atan2>
+ 8002202:	2200      	movs	r2, #0
+ 8002204:	ec51 0b10 	vmov	r0, r1, d0
+ 8002208:	4ba3      	ldr	r3, [pc, #652]	; (8002498 <sound_remote+0x2f8>)
+ 800220a:	f7ff f951 	bl	80014b0 <__aeabi_dmul>
+ 800220e:	4606      	mov	r6, r0
+ 8002210:	4640      	mov	r0, r8
+ 8002212:	460f      	mov	r7, r1
+ 8002214:	f7ff f8f0 	bl	80013f8 <__aeabi_f2d>
+ 8002218:	4602      	mov	r2, r0
+ 800221a:	460b      	mov	r3, r1
+ 800221c:	4630      	mov	r0, r6
+ 800221e:	4639      	mov	r1, r7
+ 8002220:	f7fe ff8c 	bl	800113c <__adddf3>
+ 8002224:	f7ff fc2c 	bl	8001a80 <__aeabi_d2f>
+ 8002228:	eb0b 0684 	add.w	r6, fp, r4, lsl #2
+ 800222c:	4680      	mov	r8, r0
+ 800222e:	6830      	ldr	r0, [r6, #0]
+ 8002230:	f7ff f8e2 	bl	80013f8 <__aeabi_f2d>
+ 8002234:	e9cd 0100 	strd	r0, r1, [sp]
+ 8002238:	6870      	ldr	r0, [r6, #4]
+ 800223a:	f7ff f8dd 	bl	80013f8 <__aeabi_f2d>
+ 800223e:	ed9d 1b00 	vldr	d1, [sp]
+ 8002242:	ec41 0b10 	vmov	d0, r0, r1
+ 8002246:	f009 f9c3 	bl	800b5d0 <atan2>
+ 800224a:	2200      	movs	r2, #0
+ 800224c:	ec51 0b10 	vmov	r0, r1, d0
+ 8002250:	4b91      	ldr	r3, [pc, #580]	; (8002498 <sound_remote+0x2f8>)
+ 8002252:	f7ff f92d 	bl	80014b0 <__aeabi_dmul>
+ 8002256:	4606      	mov	r6, r0
+ 8002258:	4648      	mov	r0, r9
+ 800225a:	460f      	mov	r7, r1
+ 800225c:	f7ff f8cc 	bl	80013f8 <__aeabi_f2d>
+ 8002260:	4602      	mov	r2, r0
+ 8002262:	460b      	mov	r3, r1
+ 8002264:	4630      	mov	r0, r6
+ 8002266:	4639      	mov	r1, r7
+ 8002268:	f7fe ff68 	bl	800113c <__adddf3>
+ 800226c:	f7ff fc08 	bl	8001a80 <__aeabi_d2f>
+ 8002270:	498a      	ldr	r1, [pc, #552]	; (800249c <sound_remote+0x2fc>)
+ 8002272:	f3c4 024e 	ubfx	r2, r4, #1, #15
+ 8002276:	0093      	lsls	r3, r2, #2
+ 8002278:	18ce      	adds	r6, r1, r3
+ 800227a:	4989      	ldr	r1, [pc, #548]	; (80024a0 <sound_remote+0x300>)
+ 800227c:	edd6 6a00 	vldr	s13, [r6]
+ 8002280:	4681      	mov	r9, r0
+ 8002282:	18c8      	adds	r0, r1, r3
+ 8002284:	eb0a 0103 	add.w	r1, sl, r3
+ 8002288:	edd1 7a00 	vldr	s15, [r1]
+ 800228c:	ed90 7a00 	vldr	s14, [r0]
+ 8002290:	eef4 7ae9 	vcmpe.f32	s15, s19
+ 8002294:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002298:	eee6 8a89 	vfma.f32	s17, s13, s18
+ 800229c:	eea7 8a09 	vfma.f32	s16, s14, s18
+ 80022a0:	dc08      	bgt.n	80022b4 <sound_remote+0x114>
+ 80022a2:	9903      	ldr	r1, [sp, #12]
+ 80022a4:	440b      	add	r3, r1
+ 80022a6:	edd3 7a00 	vldr	s15, [r3]
+ 80022aa:	eef4 7ae9 	vcmpe.f32	s15, s19
+ 80022ae:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80022b2:	dd02      	ble.n	80022ba <sound_remote+0x11a>
+ 80022b4:	b212      	sxth	r2, r2
+ 80022b6:	f8ad 2012 	strh.w	r2, [sp, #18]
+ 80022ba:	3402      	adds	r4, #2
+ 80022bc:	2c2c      	cmp	r4, #44	; 0x2c
+ 80022be:	f105 0508 	add.w	r5, r5, #8
+ 80022c2:	d18e      	bne.n	80021e2 <sound_remote+0x42>
+ 80022c4:	f8bd 4012 	ldrh.w	r4, [sp, #18]
+ 80022c8:	b224      	sxth	r4, r4
+ 80022ca:	4647      	mov	r7, r8
+ 80022cc:	464e      	mov	r6, r9
+ 80022ce:	2c00      	cmp	r4, #0
+ 80022d0:	f000 80ae 	beq.w	8002430 <sound_remote+0x290>
+ 80022d4:	eddd 7a06 	vldr	s15, [sp, #24]
+ 80022d8:	eddf 6a72 	vldr	s13, [pc, #456]	; 80024a4 <sound_remote+0x304>
+ 80022dc:	ed9d 7a07 	vldr	s14, [sp, #28]
+ 80022e0:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 80022e4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80022e8:	dd0c      	ble.n	8002304 <sound_remote+0x164>
+ 80022ea:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80022ee:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80022f2:	f300 8081 	bgt.w	80023f8 <sound_remote+0x258>
+ 80022f6:	eddd 6a05 	vldr	s13, [sp, #20]
+ 80022fa:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 80022fe:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002302:	d479      	bmi.n	80023f8 <sound_remote+0x258>
+ 8002304:	eddf 6a67 	vldr	s13, [pc, #412]	; 80024a4 <sound_remote+0x304>
+ 8002308:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 800230c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002310:	dd17      	ble.n	8002342 <sound_remote+0x1a2>
+ 8002312:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 8002316:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 800231a:	d512      	bpl.n	8002342 <sound_remote+0x1a2>
+ 800231c:	ed9f 7a62 	vldr	s14, [pc, #392]	; 80024a8 <sound_remote+0x308>
+ 8002320:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 8002324:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002328:	dc66      	bgt.n	80023f8 <sound_remote+0x258>
+ 800232a:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 800232e:	f001 faf7 	bl	8003920 <left_motor_set_speed>
+ 8002332:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 8002336:	f001 fb0b 	bl	8003950 <right_motor_set_speed>
+ 800233a:	f44f 1400 	mov.w	r4, #2097152	; 0x200000
+ 800233e:	4b5b      	ldr	r3, [pc, #364]	; (80024ac <sound_remote+0x30c>)
+ 8002340:	e07e      	b.n	8002440 <sound_remote+0x2a0>
+ 8002342:	eddd 7a0b 	vldr	s15, [sp, #44]	; 0x2c
+ 8002346:	eddf 6a57 	vldr	s13, [pc, #348]	; 80024a4 <sound_remote+0x304>
+ 800234a:	ed9d 7a0a 	vldr	s14, [sp, #40]	; 0x28
+ 800234e:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 8002352:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002356:	dd17      	ble.n	8002388 <sound_remote+0x1e8>
+ 8002358:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 800235c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002360:	dc06      	bgt.n	8002370 <sound_remote+0x1d0>
+ 8002362:	eddd 6a0c 	vldr	s13, [sp, #48]	; 0x30
+ 8002366:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 800236a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 800236e:	d50b      	bpl.n	8002388 <sound_remote+0x1e8>
+ 8002370:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 8002374:	f001 fad4 	bl	8003920 <left_motor_set_speed>
+ 8002378:	484d      	ldr	r0, [pc, #308]	; (80024b0 <sound_remote+0x310>)
+ 800237a:	f001 fae9 	bl	8003950 <right_motor_set_speed>
+ 800237e:	2420      	movs	r4, #32
+ 8002380:	4b4a      	ldr	r3, [pc, #296]	; (80024ac <sound_remote+0x30c>)
+ 8002382:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
+ 8002386:	e05c      	b.n	8002442 <sound_remote+0x2a2>
+ 8002388:	eddf 6a46 	vldr	s13, [pc, #280]	; 80024a4 <sound_remote+0x304>
+ 800238c:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 8002390:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8002394:	dc5e      	bgt.n	8002454 <sound_remote+0x2b4>
+ 8002396:	f8bd 3012 	ldrh.w	r3, [sp, #18]
+ 800239a:	b21b      	sxth	r3, r3
+ 800239c:	2b11      	cmp	r3, #17
+ 800239e:	dd6c      	ble.n	800247a <sound_remote+0x2da>
+ 80023a0:	f8bd 3012 	ldrh.w	r3, [sp, #18]
+ 80023a4:	b21b      	sxth	r3, r3
+ 80023a6:	2b14      	cmp	r3, #20
+ 80023a8:	dc67      	bgt.n	800247a <sound_remote+0x2da>
+ 80023aa:	eddf 7a42 	vldr	s15, [pc, #264]	; 80024b4 <sound_remote+0x314>
+ 80023ae:	ee78 7a27 	vadd.f32	s15, s16, s15
+ 80023b2:	eef4 7ae8 	vcmpe.f32	s15, s17
+ 80023b6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80023ba:	d508      	bpl.n	80023ce <sound_remote+0x22e>
+ 80023bc:	ee07 7a90 	vmov	s15, r7
+ 80023c0:	ee07 6a10 	vmov	s14, r6
+ 80023c4:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80023c8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80023cc:	dc14      	bgt.n	80023f8 <sound_remote+0x258>
+ 80023ce:	eddf 7a3a 	vldr	s15, [pc, #232]	; 80024b8 <sound_remote+0x318>
+ 80023d2:	ee38 8a67 	vsub.f32	s16, s16, s15
+ 80023d6:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 80023da:	eeb4 8ae8 	vcmpe.f32	s16, s17
+ 80023de:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80023e2:	dda4      	ble.n	800232e <sound_remote+0x18e>
  80023e4:	ee07 7a90 	vmov	s15, r7
  80023e8:	ee07 6a10 	vmov	s14, r6
  80023ec:	eef4 7ac7 	vcmpe.f32	s15, s14
  80023f0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80023f4:	f57f af16 	bpl.w	8002224 <sound_remote+0x84>
- 80023f8:	e738      	b.n	800226c <sound_remote+0xcc>
- 80023fa:	ee07 8a90 	vmov	s15, r8
- 80023fe:	ee07 9a10 	vmov	s14, r9
- 8002402:	eef4 7ac7 	vcmpe.f32	s15, s14
- 8002406:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800240a:	dddf      	ble.n	80023cc <sound_remote+0x22c>
- 800240c:	4820      	ldr	r0, [pc, #128]	; (8002490 <sound_remote+0x2f0>)
- 800240e:	f001 fa87 	bl	8003920 <left_motor_set_speed>
- 8002412:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 8002416:	f001 fa9b 	bl	8003950 <right_motor_set_speed>
- 800241a:	4b1c      	ldr	r3, [pc, #112]	; (800248c <sound_remote+0x2ec>)
- 800241c:	2420      	movs	r4, #32
- 800241e:	2040      	movs	r0, #64	; 0x40
- 8002420:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 8002424:	f04f 6200 	mov.w	r2, #134217728	; 0x8000000
- 8002428:	619c      	str	r4, [r3, #24]
- 800242a:	6198      	str	r0, [r3, #24]
- 800242c:	6199      	str	r1, [r3, #24]
- 800242e:	619a      	str	r2, [r3, #24]
- 8002430:	9a0d      	ldr	r2, [sp, #52]	; 0x34
- 8002432:	f8da 3000 	ldr.w	r3, [sl]
- 8002436:	429a      	cmp	r2, r3
- 8002438:	d121      	bne.n	800247e <sound_remote+0x2de>
- 800243a:	b00f      	add	sp, #60	; 0x3c
- 800243c:	ecbd 8b04 	vpop	{d8-d9}
- 8002440:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 8002444:	eef4 7ac7 	vcmpe.f32	s15, s14
- 8002448:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800244c:	f57f af28 	bpl.w	80022a0 <sound_remote+0x100>
- 8002450:	ed9f 7a0d 	vldr	s14, [pc, #52]	; 8002488 <sound_remote+0x2e8>
+ 80023f4:	d59b      	bpl.n	800232e <sound_remote+0x18e>
+ 80023f6:	e7bd      	b.n	8002374 <sound_remote+0x1d4>
+ 80023f8:	482d      	ldr	r0, [pc, #180]	; (80024b0 <sound_remote+0x310>)
+ 80023fa:	f001 fa91 	bl	8003920 <left_motor_set_speed>
+ 80023fe:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 8002402:	f001 faa5 	bl	8003950 <right_motor_set_speed>
+ 8002406:	4b29      	ldr	r3, [pc, #164]	; (80024ac <sound_remote+0x30c>)
+ 8002408:	2420      	movs	r4, #32
+ 800240a:	2040      	movs	r0, #64	; 0x40
+ 800240c:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 8002410:	f04f 6200 	mov.w	r2, #134217728	; 0x8000000
+ 8002414:	619c      	str	r4, [r3, #24]
+ 8002416:	6198      	str	r0, [r3, #24]
+ 8002418:	6199      	str	r1, [r3, #24]
+ 800241a:	619a      	str	r2, [r3, #24]
+ 800241c:	4b1a      	ldr	r3, [pc, #104]	; (8002488 <sound_remote+0x2e8>)
+ 800241e:	9a0d      	ldr	r2, [sp, #52]	; 0x34
+ 8002420:	681b      	ldr	r3, [r3, #0]
+ 8002422:	429a      	cmp	r2, r3
+ 8002424:	d12e      	bne.n	8002484 <sound_remote+0x2e4>
+ 8002426:	b00f      	add	sp, #60	; 0x3c
+ 8002428:	ecbd 8b04 	vpop	{d8-d9}
+ 800242c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8002430:	4620      	mov	r0, r4
+ 8002432:	f001 fa75 	bl	8003920 <left_motor_set_speed>
+ 8002436:	4620      	mov	r0, r4
+ 8002438:	f001 fa8a 	bl	8003950 <right_motor_set_speed>
+ 800243c:	4b1b      	ldr	r3, [pc, #108]	; (80024ac <sound_remote+0x30c>)
+ 800243e:	2420      	movs	r4, #32
+ 8002440:	2040      	movs	r0, #64	; 0x40
+ 8002442:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 8002446:	f44f 6200 	mov.w	r2, #2048	; 0x800
+ 800244a:	619c      	str	r4, [r3, #24]
+ 800244c:	6198      	str	r0, [r3, #24]
+ 800244e:	6199      	str	r1, [r3, #24]
+ 8002450:	619a      	str	r2, [r3, #24]
+ 8002452:	e7e3      	b.n	800241c <sound_remote+0x27c>
  8002454:	eef4 7ac7 	vcmpe.f32	s15, s14
  8002458:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800245c:	f44f 7096 	mov.w	r0, #300	; 0x12c
- 8002460:	f77f aee0 	ble.w	8002224 <sound_remote+0x84>
- 8002464:	f001 fa5c 	bl	8003920 <left_motor_set_speed>
- 8002468:	4809      	ldr	r0, [pc, #36]	; (8002490 <sound_remote+0x2f0>)
- 800246a:	e7d4      	b.n	8002416 <sound_remote+0x276>
- 800246c:	2000      	movs	r0, #0
- 800246e:	f001 fa57 	bl	8003920 <left_motor_set_speed>
- 8002472:	2000      	movs	r0, #0
- 8002474:	f001 fa6c 	bl	8003950 <right_motor_set_speed>
- 8002478:	2420      	movs	r4, #32
- 800247a:	4b04      	ldr	r3, [pc, #16]	; (800248c <sound_remote+0x2ec>)
- 800247c:	e6db      	b.n	8002236 <sound_remote+0x96>
- 800247e:	f7ff fe77 	bl	8002170 <__stack_chk_fail>
- 8002482:	bf00      	nop
- 8002484:	42480000 	.word	0x42480000
- 8002488:	437a0000 	.word	0x437a0000
- 800248c:	40020c00 	.word	0x40020c00
- 8002490:	fffffed4 	.word	0xfffffed4
- 8002494:	00000000 	.word	0x00000000
- 8002498:	2000a588 	.word	0x2000a588
- 800249c:	469c4000 	.word	0x469c4000
- 80024a0:	3fd00000 	.word	0x3fd00000
- 80024a4:	20007588 	.word	0x20007588
- 80024a8:	20009588 	.word	0x20009588
- 80024ac:	2000c588 	.word	0x2000c588
- 80024b0:	43fa0000 	.word	0x43fa0000
- 80024b4:	45098000 	.word	0x45098000
- 80024b8:	20000b00 	.word	0x20000b00
- 80024bc:	00000000 	.word	0x00000000
+ 800245c:	d59b      	bpl.n	8002396 <sound_remote+0x1f6>
+ 800245e:	ed9f 7a12 	vldr	s14, [pc, #72]	; 80024a8 <sound_remote+0x308>
+ 8002462:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 8002466:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 800246a:	f44f 7096 	mov.w	r0, #300	; 0x12c
+ 800246e:	f77f af5e 	ble.w	800232e <sound_remote+0x18e>
+ 8002472:	f001 fa55 	bl	8003920 <left_motor_set_speed>
+ 8002476:	480e      	ldr	r0, [pc, #56]	; (80024b0 <sound_remote+0x310>)
+ 8002478:	e7c3      	b.n	8002402 <sound_remote+0x262>
+ 800247a:	2000      	movs	r0, #0
+ 800247c:	f001 fa50 	bl	8003920 <left_motor_set_speed>
+ 8002480:	2000      	movs	r0, #0
+ 8002482:	e7d9      	b.n	8002438 <sound_remote+0x298>
+ 8002484:	f7ff fe74 	bl	8002170 <__stack_chk_fail>
+ 8002488:	20000b00 	.word	0x20000b00
+ 800248c:	00000000 	.word	0x00000000
+ 8002490:	2000a588 	.word	0x2000a588
+ 8002494:	469c4000 	.word	0x469c4000
+ 8002498:	3fd00000 	.word	0x3fd00000
+ 800249c:	20009588 	.word	0x20009588
+ 80024a0:	2000c588 	.word	0x2000c588
+ 80024a4:	42480000 	.word	0x42480000
+ 80024a8:	437a0000 	.word	0x437a0000
+ 80024ac:	40020c00 	.word	0x40020c00
+ 80024b0:	fffffed4 	.word	0xfffffed4
+ 80024b4:	43fa0000 	.word	0x43fa0000
+ 80024b8:	45098000 	.word	0x45098000
+ 80024bc:	20007588 	.word	0x20007588
 
 080024c0 <processAudioData>:
  80024c0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -24902,7 +24909,7 @@ Disassembly of section .text:
  8010680:	00010001 00010000 00010100 00000100     ................
  8010690:	01000100 01000000 01000001 00000001     ................
 
-080106a0 <__FUNCTION__.12261>:
+080106a0 <__FUNCTION__.12094>:
  80106a0:	786f7270 74696d69 68745f79 00000064     proximity_thd...
 
 080106b0 <adcgrpcfg2>:
@@ -24911,7 +24918,7 @@ Disassembly of section .text:
  80106d0:	14e5390d 10d4b12c 00000000 00000000     .9..,...........
  80106e0:	6f72702f 696d6978 00007974 00000000     /proximity......
 
-080106f0 <pwmcfg_proximity.12300>:
+080106f0 <pwmcfg_proximity.12133>:
  80106f0:	000f4240 000004e2 08003a71 00000001     @B......q:......
  8010700:	08003b01 00000001 00000000 00000000     .;..............
 	...

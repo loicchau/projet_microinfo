@@ -37,89 +37,46 @@ static float micBack_output[FFT_SIZE];
 #define FREQ_MOVE_L		(FREQ_MOVE-1)
 #define FREQ_MOVE_H		(FREQ_MOVE+1)
 
-
+//Final state machine to determine how to move
 //First detects if there is an obstacle, otherwise follows the sound source
 void sound_remote(float* back, float* front){
 
 	float prox_values[NB_PROX_SENSOR];
 	float phase_average_left = 0, phase_average_right = 0;
 	float mag_average_left = 0, mag_average_right = 0;
-	volatile int16_t max_norm_index = -1;
+	volatile int16_t max_norm_index = 0;
 
 	// Store the values collected by the IR sensors in prox_values
 	obstacle_detection(prox_values);
 
-	// Start of the finite state machine
-	if(prox_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && (prox_values[PROX_RIGHT] < prox_values[PROX_FRONT_RIGHT_R] ||
-																prox_values[PROX_FRONT_RIGHT_R] < prox_values[PROX_FRONT_RIGHT_F])){
-		//turn left
-		left_motor_set_speed(-300);
-		right_motor_set_speed(300);
-		writeLED(1,1,1,0);
+	// Search for the highest peak and compute an average of the magnitude and the phase
+	for(uint16_t i = 2*MIN_FREQ ; i <= 2*MAX_FREQ ; i+=2){
+
+		phase_average_right += atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
+		phase_average_left += atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
+		mag_average_left += micLeft_output[i/2]/(MAX_FREQ-MIN_FREQ);
+		mag_average_right += micRight_output[i/2]/(MAX_FREQ-MIN_FREQ);
+
+		if(back[i/2] > MIN_VALUE_THRESHOLD || front[i/2] > MIN_VALUE_THRESHOLD){
+			max_norm_index = i/2;
+		}
 	}
-	else if(prox_values[PROX_RIGHT] > MIN_PROX_THRESHOLD && prox_values[PROX_RIGHT] > prox_values[PROX_FRONT_RIGHT_R]){
-		if(prox_values[PROX_FRONT_RIGHT_R] > MAX_PROX_THRESHOLD){
+
+	// Start of the finite state machine
+	if(max_norm_index){
+		if(prox_values[PROX_FRONT_RIGHT_R] > MIN_PROX_THRESHOLD && (prox_values[PROX_RIGHT] < prox_values[PROX_FRONT_RIGHT_R] ||
+																	prox_values[PROX_FRONT_RIGHT_R] < prox_values[PROX_FRONT_RIGHT_F])){
 			//turn left
 			left_motor_set_speed(-300);
 			right_motor_set_speed(300);
 			writeLED(1,1,1,0);
 		}
-		else{
-			//continue straight
-			left_motor_set_speed(300);
-			right_motor_set_speed(300);
-			writeLED(0,1,1,1);
-		}
-	}
-	else if(prox_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && (prox_values[PROX_LEFT] < prox_values[PROX_FRONT_LEFT_L] ||
-																	prox_values[PROX_FRONT_LEFT_L] < prox_values[PROX_FRONT_LEFT_F])){
-		//turn right
-		left_motor_set_speed(300);
-		right_motor_set_speed(-300);
-		writeLED(1,0,1,1);
-	}
-	else if(prox_values[PROX_LEFT] > MIN_PROX_THRESHOLD && prox_values[PROX_LEFT] > prox_values[PROX_FRONT_LEFT_L]){
-		if(prox_values[PROX_FRONT_LEFT_L] > MAX_PROX_THRESHOLD){
-			//turn right
-			left_motor_set_speed(300);
-			right_motor_set_speed(-300);
-			writeLED(1,1,1,0);
-		}
-		else{
-			//continue straight
-			left_motor_set_speed(300);
-			right_motor_set_speed(300);
-			writeLED(0,1,1,1);
-		}
-	}
-	
-
-	else{
-		// search for the highest peak and compute an average of the magnitude and the phase
-		for(uint16_t i = 2*MIN_FREQ ; i <= 2*MAX_FREQ ; i+=2){
-
-			phase_average_right += atan2(micRight_cmplx_input[i+1],micRight_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
-			phase_average_left += atan2(micLeft_cmplx_input[i+1],micLeft_cmplx_input[i])/(MAX_FREQ-MIN_FREQ);
-			mag_average_left += micLeft_output[i/2]/(MAX_FREQ-MIN_FREQ);
-			mag_average_right += micRight_output[i/2]/(MAX_FREQ-MIN_FREQ);
-
-			if(back[i/2] > MIN_VALUE_THRESHOLD || front[i/2] > MIN_VALUE_THRESHOLD){
-				max_norm_index = i/2;
-			}
-		}
-		// Follows the sound source
-		if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD_LEFT && phase_average_left < phase_average_right){
+		else if(prox_values[PROX_RIGHT] > MIN_PROX_THRESHOLD && prox_values[PROX_RIGHT] > prox_values[PROX_FRONT_RIGHT_R]){
+			if(prox_values[PROX_FRONT_RIGHT_R] > MAX_PROX_THRESHOLD){
 				//turn left
 				left_motor_set_speed(-300);
 				right_motor_set_speed(300);
 				writeLED(1,1,1,0);
-			}
-			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD_RIGHT && phase_average_left > phase_average_right){
-				//turn right
-				left_motor_set_speed(300);
-				right_motor_set_speed(-300);
-				writeLED(1,0,1,1);
 			}
 			else{
 				//continue straight
@@ -128,12 +85,64 @@ void sound_remote(float* back, float* front){
 				writeLED(0,1,1,1);
 			}
 		}
-		else{
-			//stop
-			left_motor_set_speed(0);
-			right_motor_set_speed(0);
-			writeLED(1,1,1,1);
+		else if(prox_values[PROX_FRONT_LEFT_L] > MIN_PROX_THRESHOLD && (prox_values[PROX_LEFT] < prox_values[PROX_FRONT_LEFT_L] ||
+																		prox_values[PROX_FRONT_LEFT_L] < prox_values[PROX_FRONT_LEFT_F])){
+			//turn right
+			left_motor_set_speed(300);
+			right_motor_set_speed(-300);
+			writeLED(1,0,1,1);
 		}
+		else if(prox_values[PROX_LEFT] > MIN_PROX_THRESHOLD && prox_values[PROX_LEFT] > prox_values[PROX_FRONT_LEFT_L]){
+			if(prox_values[PROX_FRONT_LEFT_L] > MAX_PROX_THRESHOLD){
+				//turn right
+				left_motor_set_speed(300);
+				right_motor_set_speed(-300);
+				writeLED(1,1,1,0);
+			}
+			else{
+				//continue straight
+				left_motor_set_speed(300);
+				right_motor_set_speed(300);
+				writeLED(0,1,1,1);
+			}
+		}
+
+
+		else{
+			// Follows the sound source
+			if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
+				if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD_LEFT && phase_average_left < phase_average_right){
+					//turn left
+					left_motor_set_speed(-300);
+					right_motor_set_speed(300);
+					writeLED(1,1,1,0);
+				}
+				else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD_RIGHT && phase_average_left > phase_average_right){
+					//turn right
+					left_motor_set_speed(300);
+					right_motor_set_speed(-300);
+					writeLED(1,0,1,1);
+				}
+				else{
+					//continue straight
+					left_motor_set_speed(300);
+					right_motor_set_speed(300);
+					writeLED(0,1,1,1);
+				}
+			}
+			else{
+				//stop
+				left_motor_set_speed(0);
+				right_motor_set_speed(0);
+				writeLED(1,1,1,1);
+			}
+		}
+	}
+	else{
+		//stop
+		left_motor_set_speed(0);
+		right_motor_set_speed(0);
+		writeLED(1,1,1,1);
 	}
 }
 
