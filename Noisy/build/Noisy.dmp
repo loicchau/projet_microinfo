@@ -56,21 +56,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  17 .comment      0000015e  00000000  00000000  000315a9  2**0
                   CONTENTS, READONLY
- 18 .debug_info   000e4b1f  00000000  00000000  00031707  2**0
+ 18 .debug_info   000e410b  00000000  00000000  00031707  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_abbrev 0000f832  00000000  00000000  00116226  2**0
+ 19 .debug_abbrev 0000f821  00000000  00000000  00115812  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_aranges 00001a68  00000000  00000000  00125a58  2**3
+ 20 .debug_aranges 00001a68  00000000  00000000  00125038  2**3
                   CONTENTS, READONLY, DEBUGGING
- 21 .debug_ranges 000038f8  00000000  00000000  001274c0  2**0
+ 21 .debug_ranges 000038d8  00000000  00000000  00126aa0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 22 .debug_line   0002998e  00000000  00000000  0012adb8  2**0
+ 22 .debug_line   00029790  00000000  00000000  0012a378  2**0
                   CONTENTS, READONLY, DEBUGGING
- 23 .debug_str    00008853  00000000  00000000  00154746  2**0
+ 23 .debug_str    00008853  00000000  00000000  00153b08  2**0
                   CONTENTS, READONLY, DEBUGGING
- 24 .debug_frame  00007cb4  00000000  00000000  0015cf9c  2**2
+ 24 .debug_frame  00007cb4  00000000  00000000  0015c35c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 25 .debug_loc    00015d3b  00000000  00000000  00164c50  2**0
+ 25 .debug_loc    00015c8a  00000000  00000000  00164010  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 08000000 l    d  startup	00000000 startup
@@ -133,14 +133,14 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 00000000 l    df *ABS*	00000000 main.c
 00000000 l    df *ABS*	00000000 audio_processing.c
 2000a588 l     O .bss	00002000 micRight_cmplx_input
-20007588 l     O .bss	00002000 micLeft_cmplx_input
 20009588 l     O .bss	00001000 micLeft_output
 2000c588 l     O .bss	00001000 micRight_output
+20007588 l     O .bss	00002000 micLeft_cmplx_input
 20004588 l     O .bss	00002000 micFront_cmplx_input
 20001588 l     O .bss	00002000 micBack_cmplx_input
 20006588 l     O .bss	00001000 micFront_output
 20003588 l     O .bss	00001000 micBack_output
-2000d588 l     O .bss	00000002 nb_samples.14176
+2000d588 l     O .bss	00000002 nb_samples.14009
 00000000 l    df *ABS*	00000000 fft.c
 00000000 l    df *ABS*	00000000 detection.c
 00000000 l    df *ABS*	00000000 spi3_slave_lld.c
@@ -213,9 +213,9 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 2000f0b8 l     O .bss	00000278 proximity_thd_wa
 2000f330 l     O .bss	00000001 pulseSeqState
 20000ba8 l     O .data	0000000c adc2_ready
-080106a0 l     O .text	0000000e __FUNCTION__.12261
+080106a0 l     O .text	0000000e __FUNCTION__.12094
 080106b0 l     O .text	00000028 adcgrpcfg2
-080106f0 l     O .text	00000034 pwmcfg_proximity.12300
+080106f0 l     O .text	00000034 pwmcfg_proximity.12133
 00000000 l    df *ABS*	00000000 malloc_lock.c
 20000bb4 l     O .data	00000014 lock
 00000000 l    df *ABS*	00000000 newlib_syscalls.c
@@ -886,7 +886,7 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 0800bdb0 g     F .text	000004ba arm_cfft_radix8by4_f32
 200100dc g     O .bss	00000010 GPTD12
 08007160 g     F .text	00000074 sdcWrite
-080021a0 g     F .text	0000031c sound_remote
+080021a0 g     F .text	00000320 sound_remote
 08004170 g     F .text	0000001c _unhandled_exception
 08002b90 g     F .text	0000008c spi3SlaveStart
 08008f70 g     F .text	0000004c Vector170

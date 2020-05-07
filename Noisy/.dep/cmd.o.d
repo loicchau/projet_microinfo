@@ -154,7 +154,6 @@ build/obj/cmd.o: ../../lib/e-puck2_main-processor/src/cmd.c \
  ../../lib/e-puck2_main-processor/src/config_flash_storage.h \
  ../../lib/e-puck2_main-processor/src/parameter/parameter.h \
  ../../lib/e-puck2_main-processor/src/leds.h main.h \
- ../../lib/e-puck2_main-processor/src/camera/dcmi_camera.h \
  ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
@@ -480,8 +479,6 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 ../../lib/e-puck2_main-processor/src/leds.h:
 
 main.h:
-
-../../lib/e-puck2_main-processor/src/camera/dcmi_camera.h:
 
 ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h:
 
