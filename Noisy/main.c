@@ -64,6 +64,7 @@ int main(void)
     //usb_start();
     //starts timer 12
     //timer12_start();
+
     //inits the motors
     motors_init();
 
