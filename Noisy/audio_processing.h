@@ -20,5 +20,6 @@ typedef enum {
 
 void processAudioData(int16_t *data, uint16_t num_samples);
 
+void writeLED (uint8_t led1, uint8_t led3, uint8_t led5, uint8_t led7);
 
 #endif /* AUDIO_PROCESSING_H */
