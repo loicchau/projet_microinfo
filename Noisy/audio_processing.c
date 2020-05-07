@@ -15,13 +15,13 @@
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
-//static float micFront_cmplx_input[2 * FFT_SIZE];
+static float micFront_cmplx_input[2 * FFT_SIZE];
 static float micBack_cmplx_input[2 * FFT_SIZE];
 
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
-//static float micFront_output[FFT_SIZE];
+static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
 #define MIN_VALUE_THRESHOLD 20000
@@ -41,7 +41,7 @@ static float micBack_output[FFT_SIZE];
 /*
 *
 */
-void sound_remote(float* back){
+void sound_remote(float* back, float* front){
 
 	float prox_values[NB_PROX_SENSOR];
 	float phase_average_left = 0, phase_average_right = 0;
@@ -124,13 +124,13 @@ void sound_remote(float* back){
 			mag_average_left += micLeft_output[i/2]/(MAX_FREQ-MIN_FREQ);
 			mag_average_right += micRight_output[i/2]/(MAX_FREQ-MIN_FREQ);
 
-			if(back[i/2] > MIN_VALUE_THRESHOLD){
+			if(back[i/2] > MIN_VALUE_THRESHOLD || front[i/2] > MIN_VALUE_THRESHOLD){
 				max_norm_index = i/2;
 			}
 		}
 		// Suit la source sonore
 		if(max_norm_index >= FREQ_MOVE_L && max_norm_index <= FREQ_MOVE_H){
-			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD_LEFT && phase_average_left > phase_average_right){//||
+			if(mag_average_left > mag_average_right + MIN_MAG_THRESHOLD_LEFT && phase_average_left < phase_average_right){//||
 				left_motor_set_speed(-300);
 				right_motor_set_speed(300);
 				writeLED(1,1,1,0);
@@ -139,7 +139,7 @@ void sound_remote(float* back){
 				palWritePad(GPIOD, GPIOD_LED5, 1);
 				palWritePad(GPIOD, GPIOD_LED7, 0);*/
 			}
-			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD_RIGHT && phase_average_left < phase_average_right){
+			else if(mag_average_left < mag_average_right - MIN_MAG_THRESHOLD_RIGHT && phase_average_left > phase_average_right){
 				left_motor_set_speed(300);
 				right_motor_set_speed(-300);
 				writeLED(1,0,1,1);
@@ -204,14 +204,14 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		micRight_cmplx_input[nb_samples] = (float)data[i + MIC_RIGHT];
 		micLeft_cmplx_input[nb_samples] = (float)data[i + MIC_LEFT];
 		micBack_cmplx_input[nb_samples] = (float)data[i + MIC_BACK];
-		//micFront_cmplx_input[nb_samples] = (float)data[i + MIC_FRONT];
+		micFront_cmplx_input[nb_samples] = (float)data[i + MIC_FRONT];
 
 		nb_samples++;
 
 		micRight_cmplx_input[nb_samples] = 0;
 		micLeft_cmplx_input[nb_samples] = 0;
 		micBack_cmplx_input[nb_samples] = 0;
-		//micFront_cmplx_input[nb_samples] = 0;
+		micFront_cmplx_input[nb_samples] = 0;
 
 		nb_samples++;
 
@@ -230,7 +230,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		doFFT_optimized(FFT_SIZE, micRight_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micLeft_cmplx_input);
-		//doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
+		doFFT_optimized(FFT_SIZE, micFront_cmplx_input);
 		doFFT_optimized(FFT_SIZE, micBack_cmplx_input);
 
 
@@ -244,11 +244,11 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		*/
 		arm_cmplx_mag_f32(micRight_cmplx_input, micRight_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micLeft_cmplx_input, micLeft_output, FFT_SIZE);
-		//arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
+		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
 		nb_samples = 0;
 
-		sound_remote(micBack_output);
+		sound_remote(micBack_output, micFront_output);
 	}
 }
