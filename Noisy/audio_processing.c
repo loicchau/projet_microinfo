@@ -24,15 +24,15 @@ static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
-#define MIN_VALUE_THRESHOLD 20000
+#define MIN_VALUE_THRESHOLD 30000
 #define MIN_MAG_THRESHOLD_RIGHT 2200
 #define MIN_MAG_THRESHOLD_LEFT 500
 #define MIN_PROX_THRESHOLD 50
 #define MAX_PROX_THRESHOLD 250
 
-#define MIN_FREQ		17	//we don't analyze before this index to not use resources for nothing
+#define MIN_FREQ		14	//we don't analyze before this index to not use resources for nothing
 #define FREQ_MOVE		19	//297Hz
-#define MAX_FREQ		21	//we don't analyze after this index to not use resources for nothing
+#define MAX_FREQ		24	//we don't analyze after this index to not use resources for nothing
 
 #define FREQ_MOVE_L		(FREQ_MOVE-1)
 #define FREQ_MOVE_H		(FREQ_MOVE+1)
