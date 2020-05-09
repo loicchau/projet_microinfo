@@ -1,8 +1,6 @@
 #include "ch.h"
 #include "hal.h"
 #include <main.h>
-#include <usbcfg.h>
-#include <chprintf.h>
 
 #include <motors.h>
 #include <detection.h>
@@ -41,10 +39,10 @@ static float micBack_output[FFT_SIZE];
 //First detects if there is an obstacle, otherwise follows the sound source
 void sound_remote(float* back, float* front){
 
-	float prox_values[NB_PROX_SENSOR];
+	int prox_values[NB_PROX_SENSOR];
 	float phase_average_left = 0, phase_average_right = 0;
 	float mag_average_left = 0, mag_average_right = 0;
-	volatile int16_t max_norm_index = 0;
+	int16_t max_norm_index = 0;
 
 	// Store the values collected by the IR sensors in prox_values
 	obstacle_detection(prox_values);
@@ -146,6 +144,8 @@ void sound_remote(float* back, float* front){
 	}
 }
 
+// Fonction to turn the LEDs on or off
+// 1 = off, 0 = on
 void writeLED (uint8_t led1, uint8_t led3, uint8_t led5, uint8_t led7){
 	palWritePad(GPIOD, GPIOD_LED1, led1);
 	palWritePad(GPIOD, GPIOD_LED3, led3);

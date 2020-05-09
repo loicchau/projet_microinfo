@@ -99,24 +99,18 @@ build/obj/detection.o: detection.c \
  ../../lib/e-puck2_main-processor/ChibiOS_ext/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/mmc_spi.h \
  ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/serial_usb.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
+ main.h ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\newlib.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\config.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
- ../../lib/e-puck2_main-processor/src/usbcfg.h \
- ../../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h \
- main.h ../../lib/e-puck2_main-processor/src/msgbus/messagebus.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h \
- c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_endian.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\select.h \
@@ -129,11 +123,11 @@ build/obj/detection.o: detection.c \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\types.h \
  ../../lib/e-puck2_main-processor/src/parameter/parameter.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h \
+ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h \
  c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h \
- ../../lib/e-puck2_main-processor/src/motors.h \
- ../../lib/e-puck2_main-processor/src/sensors/proximity.h detection.h \
- ../../lib/e-puck2_main-processor/src/leds.h
+ ../../lib/e-puck2_main-processor/src/sensors/proximity.h detection.h
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/rt/include/ch.h:
 
@@ -337,9 +331,13 @@ mcuconf.h:
 
 ../../lib/e-puck2_main-processor/ChibiOS//os/hal/include/serial_usb.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h:
+main.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h:
+../../lib/e-puck2_main-processor/src/msgbus/messagebus.h:
+
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
+
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h:
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
 
@@ -349,31 +347,15 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\ieeefp.h:
 
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h:
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h:
+
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h:
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\_types.h:
 
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\_types.h:
+
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\lock.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\cdefs.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
-
-../../lib/e-puck2_main-processor/src/usbcfg.h:
-
-../../lib/e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\lib\gcc\arm-none-eabi\7.2.1\include\stdarg.h:
-
-main.h:
-
-../../lib/e-puck2_main-processor/src/msgbus/messagebus.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\unistd.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\unistd.h:
-
-c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\types.h:
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\endian.h:
 
@@ -399,14 +381,14 @@ c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdlib.h:
 
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\_ansi.h:
+
+c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\sys\reent.h:
+
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\machine\stdlib.h:
 
 c:\users\loicc\documents\epfl\microinfo\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\alloca.h:
 
-../../lib/e-puck2_main-processor/src/motors.h:
-
 ../../lib/e-puck2_main-processor/src/sensors/proximity.h:
 
 detection.h:
-
-../../lib/e-puck2_main-processor/src/leds.h:
